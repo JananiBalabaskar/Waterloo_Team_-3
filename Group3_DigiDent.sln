@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Group3_DigiDent", "Group3_DigiDent.csproj", "{6B6FA5F4-04A9-4FC8-A921-ED2D065F2126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B6FA5F4-04A9-4FC8-A921-ED2D065F2126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B6FA5F4-04A9-4FC8-A921-ED2D065F2126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B6FA5F4-04A9-4FC8-A921-ED2D065F2126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B6FA5F4-04A9-4FC8-A921-ED2D065F2126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BC381F2-2D4D-419A-8055-F71E646D383B}
+	EndGlobalSection
+EndGlobal
