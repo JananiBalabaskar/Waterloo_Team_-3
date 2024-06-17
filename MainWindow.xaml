@@ -1,0 +1,50 @@
+﻿<Window x:Class="Digident_Group3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Digident_Group3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF46BBD8"/>
+                    <GradientStop Color="#FF107BCB" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Image HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="933" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\dqa\Digident_Group3\digident.png"
+ Margin="-3,4,0,0" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.065"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-0.473"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Content="Login" HorizontalAlignment="Left" Height="48" Margin="590,100,0,0"  VerticalAlignment="Top" Width="102" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF47BCD8" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Register" HorizontalAlignment="Left" Height="48" Margin="698,100,0,0"  VerticalAlignment="Top" Width="102" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF47BCD8" Offset="1"/>
+
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Image HorizontalAlignment="Center" Height="354" Margin="0,148,0,0" VerticalAlignment="Top" Width="787" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\dqa\Digident_Group3\digident1.png"/>
+
+        </Grid>
+    </ScrollViewer>
+</Window>
