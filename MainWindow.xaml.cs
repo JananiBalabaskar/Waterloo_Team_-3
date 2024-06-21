@@ -1,80 +1,215 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Digident_Group3
+namespace appointment_screen
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        // ObservableCollection to hold the list of appointments
+        public ObservableCollection<Appointment> Appointments { get; set; }
+        private Appointment selectedAppointment; // The currently selected appointment
+
         public MainWindow()
         {
             InitializeComponent();
+            Appointments = new ObservableCollection<Appointment>();
+            DataContext = this;
         }
 
-      
-        private void Booknow(object sender, RoutedEventArgs e)
+        // Event handler for scheduling a new appointment
+        private void ScheduleAppointment_Click(object sender, RoutedEventArgs e)
         {
+            // Retrieve user input from the UI
+            string patientName = txtPatientName.Text.Trim();
+            DateTime? selectedDate = dpAppointmentDate.SelectedDate;
+            string timeString = ((ComboBoxItem)cbAppointmentTime.SelectedItem)?.Content?.ToString();
+            string notes = txtNotes.Text.Trim();
 
+            // Validate input fields
+            if (string.IsNullOrWhiteSpace(patientName) || selectedDate == null || string.IsNullOrWhiteSpace(timeString))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            // Combine date and time into a single DateTime object
+            DateTime appointmentDateTime;
+            try
+            {
+                appointmentDateTime = DateTime.ParseExact(
+                    selectedDate.Value.ToString("yyyy-MM-dd") + " " + timeString,
+                    "yyyy-MM-dd hh:mm tt",
+                    CultureInfo.InvariantCulture);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid time format.");
+                return;
+            }
+
+            // Create a new appointment and add it to the collection
+            Appointment newAppointment = new Appointment
+            {
+                PatientName = patientName,
+                AppointmentDate = appointmentDateTime,
+                Notes = notes
+            };
+
+            Appointments.Add(newAppointment);
+            ClearFields(); // Clear the input fields after adding the appointment
         }
 
-        private void Homebutton(object sender, RoutedEventArgs e)
+        // Event handler for updating an existing appointment
+        private void UpdateAppointment_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedAppointment == null)
+            {
+                MessageBox.Show("Please select an appointment to update.");
+                return;
+            }
 
+            // Retrieve user input from the UI
+            string patientName = txtPatientName.Text.Trim();
+            DateTime? selectedDate = dpAppointmentDate.SelectedDate;
+            string timeString = ((ComboBoxItem)cbAppointmentTime.SelectedItem)?.Content?.ToString();
+            string notes = txtNotes.Text.Trim();
+
+            // Validate input fields
+            if (string.IsNullOrWhiteSpace(patientName) || selectedDate == null || string.IsNullOrWhiteSpace(timeString))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            // Combine date and time into a single DateTime object
+            DateTime appointmentDateTime;
+            try
+            {
+                appointmentDateTime = DateTime.ParseExact(
+                    selectedDate.Value.ToString("yyyy-MM-dd") + " " + timeString,
+                    "yyyy-MM-dd hh:mm tt",
+                    CultureInfo.InvariantCulture);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid time format.");
+                return;
+            }
+
+            // Update the selected appointment with new values
+            selectedAppointment.PatientName = patientName;
+            selectedAppointment.AppointmentDate = appointmentDateTime;
+            selectedAppointment.Notes = notes;
+
+            // Refresh the ListBox to show updated information
+            lbAppointments.Items.Refresh();
+            ClearFields(); // Clear the input fields after updating the appointment
         }
 
-        private void aboutus(object sender, RoutedEventArgs e)
+        // Event handler for deleting an existing appointment
+        private void DeleteAppointment_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedAppointment == null)
+            {
+                MessageBox.Show("Please select an appointment to delete.");
+                return;
+            }
 
+            // Remove the selected appointment from the collection
+            Appointments.Remove(selectedAppointment);
+            ClearFields(); // Clear the input fields after deleting the appointment
         }
 
-        private void services(object sender, RoutedEventArgs e)
+        // Event handler for when the selected appointment in the ListBox changes
+        private void LbAppointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ServicesImage1.BringIntoView();
+            selectedAppointment = lbAppointments.SelectedItem as Appointment;
+            if (selectedAppointment != null)
+            {
+                // Populate the input fields with the selected appointment's details
+                txtPatientName.Text = selectedAppointment.PatientName;
+                dpAppointmentDate.SelectedDate = selectedAppointment.AppointmentDate.Date;
+                cbAppointmentTime.Text = selectedAppointment.AppointmentDate.ToString("hh:mm tt", CultureInfo.InvariantCulture);
+                txtNotes.Text = selectedAppointment.Notes;
+            }
         }
 
-        private void Contactus(object sender, RoutedEventArgs e)
+        // Helper method to clear the input fields
+        private void ClearFields()
         {
+            txtPatientName.Clear();
+            dpAppointmentDate.SelectedDate = null;
+            cbAppointmentTime.SelectedIndex = -1;
+            txtNotes.Clear();
+            selectedAppointment = null;
+        }
+    }
 
+    // Appointment class implementing INotifyPropertyChanged to support property change notifications
+    public class Appointment : INotifyPropertyChanged
+    {
+        private string patientName;
+        private DateTime appointmentDate;
+        private string notes;
+
+        // Property for PatientName with notification support
+        public string PatientName
+        {
+            get => patientName;
+            set
+            {
+                if (patientName != value)
+                {
+                    patientName = value;
+                    OnPropertyChanged(nameof(PatientName));
+                    OnPropertyChanged(nameof(DisplayText));
+                }
+            }
         }
 
-        private void Register(object sender, RoutedEventArgs e)
+        // Property for AppointmentDate with notification support
+        public DateTime AppointmentDate
         {
-
-            Register registerPage = new Register();
-            ChangePage(registerPage);
-
+            get => appointmentDate;
+            set
+            {
+                if (appointmentDate != value)
+                {
+                    appointmentDate = value;
+                    OnPropertyChanged(nameof(AppointmentDate));
+                    OnPropertyChanged(nameof(DisplayText));
+                }
+            }
         }
 
-        private void QuestionForm(object sender, RoutedEventArgs e)
+        // Property for Notes with notification support
+        public string Notes
         {
-
+            get => notes;
+            set
+            {
+                if (notes != value)
+                {
+                    notes = value;
+                    OnPropertyChanged(nameof(Notes));
+                    OnPropertyChanged(nameof(DisplayText));
+                }
+            }
         }
 
-        private void Loginbutton(object sender, RoutedEventArgs e)
-        {
-            
-            Login loginPage = new Login();
-            ChangePage(loginPage);
-          
-        }
+        // Property to display appointment details in a readable format
+        public string DisplayText => $"{PatientName} - {AppointmentDate:MM/dd/yyyy hh:mm tt} - {Notes}";
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        }
-        public void ChangePage(Page page)
+        // Method to raise the PropertyChanged event
+        protected void OnPropertyChanged(string propertyName)
         {
-            Content = page;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
