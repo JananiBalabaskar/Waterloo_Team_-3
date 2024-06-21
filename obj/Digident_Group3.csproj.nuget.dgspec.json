@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\dqa\\Digident_Group3\\Digident_Group3.csproj": {}
+    "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\Waterloo_Team_3\\Digident_Group3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\dqa\\Digident_Group3\\Digident_Group3.csproj": {
+    "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\Waterloo_Team_3\\Digident_Group3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\dqa\\Digident_Group3\\Digident_Group3.csproj",
+        "projectUniqueName": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\Waterloo_Team_3\\Digident_Group3.csproj",
         "projectName": "Digident_Group3",
-        "projectPath": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\dqa\\Digident_Group3\\Digident_Group3.csproj",
+        "projectPath": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\Waterloo_Team_3\\Digident_Group3.csproj",
         "packagesPath": "C:\\Users\\JANANINARENDRAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\dqa\\Digident_Group3\\obj\\",
+        "outputPath": "C:\\Users\\JANANINARENDRAN\\Documents\\assignment sem2\\Waterloo_Team_3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JANANINARENDRAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
