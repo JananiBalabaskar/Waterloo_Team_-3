@@ -108,6 +108,7 @@
                 </Button.Background>
             </Button>
             <Image x:Name="ServicesImage1" HorizontalAlignment="Left" Height="440" Margin="2,1278,0,0" VerticalAlignment="Top" Width="794" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident3.png"/>
+            <Label Content="Contact us&#xA;234-764-8643&#xA;digident@gmail.com " HorizontalAlignment="Left" Margin="52,1723,0,0" VerticalAlignment="Top" Height="91" Width="168"/>
 
         </Grid>
     </ScrollViewer>
