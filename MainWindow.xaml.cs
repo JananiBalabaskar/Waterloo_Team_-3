@@ -20,5 +20,66 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
+
+      
+        private void Booknow(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Homebutton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void aboutus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void services(object sender, RoutedEventArgs e)
+        {
+            ServicesImage1.BringIntoView();
+        }
+
+        private void Contactus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Register(object sender, RoutedEventArgs e)
+        {
+    
+
+            // Create an instance of the Register window
+            Register registerWindow = new Register();
+
+            // Navigate to the Register window
+            registerWindow.Show();
+        }
+
+        private void QuestionForm(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Loginbutton(object sender, RoutedEventArgs e)
+        {
+            // Create an instance of the Login page or window
+            Login loginPage = new Login();
+
+            // Navigate to the Login page using the ChangePage method
+            ChangePage(loginPage);
+          
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        public void ChangePage(Page page)
+        {
+            Content = page;
+        }
     }
 }

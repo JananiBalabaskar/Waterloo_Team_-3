@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Digident_Group3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dental Management system" Height="1900" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1800"/>
+
+            </Grid.RowDefinitions>
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF46BBD8"/>
                     <GradientStop Color="#FF107BCB" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <Image HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="933" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\dqa\Digident_Group3\digident.png"
- Margin="-3,4,0,0" RenderTransformOrigin="0.5,0.5">
+            <Image HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="196" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident.png"
+                   Margin="274,1740,0,0" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -25,25 +29,85 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Button Content="Login" HorizontalAlignment="Left" Height="48" Margin="590,100,0,0"  VerticalAlignment="Top" Width="102" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2">
+
+            <Image HorizontalAlignment="Center" Height="354" Margin="0,465,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident2.png"/>
+            <Image HorizontalAlignment="Center" Height="53" Margin="0,-2,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental1.png"/>
+            <Image HorizontalAlignment="Center" Height="454" Margin="0,36,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental.png"/>
+            <Button Content="Free Consultation" HorizontalAlignment="Left" Height="22" Margin="646,118,0,0"  VerticalAlignment="Top" Width="94" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF8ADAED"/>
-                        <GradientStop Color="#FF47BCD8" Offset="1"/>
+                        <GradientStop Color="#FF1A73BD" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Register" HorizontalAlignment="Left" Height="48" Margin="698,100,0,0"  VerticalAlignment="Top" Width="102" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2">
+            <Button Content="Book Now" HorizontalAlignment="Left" Height="24" Margin="638,423,0,0"  VerticalAlignment="Top" Width="102" Click="Booknow" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF8ADAED"/>
-                        <GradientStop Color="#FF47BCD8" Offset="1"/>
+                        <GradientStop Color="#FF207DC1" Offset="1"/>
 
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-            <Image HorizontalAlignment="Center" Height="354" Margin="0,148,0,0" VerticalAlignment="Top" Width="787" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\dqa\Digident_Group3\digident1.png"/>
+            <Button Content="Home" HorizontalAlignment="Left" Height="21" Margin="216,14,0,0"  VerticalAlignment="Top" Width="59" Click="Homebutton" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="About Us" HorizontalAlignment="Left" Height="21" Margin="280,14,0,0"  VerticalAlignment="Top" Width="74" Click="aboutus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Services" HorizontalAlignment="Left" Height="21" Margin="354,14,0,0"  VerticalAlignment="Top" Width="78" Click="services" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Contact Us" HorizontalAlignment="Left" Height="21" Margin="432,14,0,0"  VerticalAlignment="Top" Width="78" Click="Contactus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Sign Up" HorizontalAlignment="Left" Height="21" Margin="515,14,0,0"  VerticalAlignment="Top" Width="69" Click="Register" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Image x:Name="ServicesImage" HorizontalAlignment="Center" Height="456" Margin="0,817,0,0" VerticalAlignment="Top" Width="839" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental2.png"/>
+            <Button Content="FAQ's" HorizontalAlignment="Left" Height="21" Margin="589,14,0,0"  VerticalAlignment="Top" Width="70" Click="QuestionForm" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Login" HorizontalAlignment="Left" Height="22" Margin="673,15,0,0"  VerticalAlignment="Top" Width="94" Click="Loginbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF1A73BD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Image x:Name="ServicesImage1" HorizontalAlignment="Left" Height="440" Margin="2,1278,0,0" VerticalAlignment="Top" Width="794" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident3.png"/>
 
         </Grid>
     </ScrollViewer>
