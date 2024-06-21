@@ -32,6 +32,8 @@ namespace Digident_Group3
 
         private void aboutus(object sender, RoutedEventArgs e)
         {
+            Aboutus aboutusPage = new Aboutus();
+            ChangePage(aboutusPage);
 
         }
 

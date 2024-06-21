@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Digident_Group3"
         mc:Ignorable="d"
-        Title="Dental Management system" Height="1900" Width="800">
+        Title="Dental Management system" Height="800" Width="800">
     
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="1800"/>
+                <RowDefinition Height="Auto"/>
 
             </Grid.RowDefinitions>
             <Grid.Background>
