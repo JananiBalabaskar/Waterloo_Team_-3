@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\App.xaml
-9-2046144711
+10-1784945877
 
-121109991619
+13-125710363
 198-1509178875
-Admin Dashboard.xaml;Appointments.xaml;Details page.xaml;Login.xaml;MainWindow.xaml;Management registration.xaml;Patient Dashboard.xaml;Register.xaml;User Profile.xaml;
+Admin.xaml;Appointments.xaml;DentistDashboard.xaml;Login.xaml;MainWindow.xaml;ManagementLogin.xaml;ManagerDashboard.xaml;PatientDashboard.xaml;PatientProfile.xaml;Register.xaml;
 
-False
+True
 

@@ -51,11 +51,7 @@ namespace Digident_Group3
         {
     
 
-            // Create an instance of the Register window
-            Register registerWindow = new Register();
-
-            // Navigate to the Register window
-            registerWindow.Show();
+           
         }
 
         private void QuestionForm(object sender, RoutedEventArgs e)
