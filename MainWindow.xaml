@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Digident_Group3"
         mc:Ignorable="d"
-        Title="Dental Management system" Height="1900" Width="800">
+        Title="Dental Management system" Height="800" Width="800">
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
+            
             <Grid.RowDefinitions>
-                <RowDefinition Height="1800"/>
+                <RowDefinition Height="Auto"/>
 
             </Grid.RowDefinitions>
             <Grid.Background>
@@ -18,6 +20,8 @@
                     <GradientStop Color="#FF107BCB" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
+           
+            
             <Image HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="196" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident.png"
                    Margin="274,1740,0,0" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
@@ -47,14 +51,6 @@
                         <GradientStop Color="#FF8ADAED"/>
                         <GradientStop Color="#FF207DC1" Offset="1"/>
 
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Content="Home" HorizontalAlignment="Left" Height="21" Margin="216,14,0,0"  VerticalAlignment="Top" Width="59" Click="Homebutton" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="White"/>
-                        <GradientStop Color="White" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
@@ -108,7 +104,7 @@
                 </Button.Background>
             </Button>
             <Image x:Name="ServicesImage1" HorizontalAlignment="Left" Height="440" Margin="2,1278,0,0" VerticalAlignment="Top" Width="794" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident3.png"/>
-            <Label Content="Contact us&#xA;234-764-8643&#xA;digident@gmail.com " HorizontalAlignment="Left" Margin="52,1723,0,0" VerticalAlignment="Top" Height="91" Width="168"/>
+            <Label x:Name="contact" Content="Contact us&#xA;234-764-8643&#xA;digident@gmail.com " HorizontalAlignment="Left" Margin="52,1723,0,0" VerticalAlignment="Top" Height="91" Width="168"/>
 
         </Grid>
     </ScrollViewer>

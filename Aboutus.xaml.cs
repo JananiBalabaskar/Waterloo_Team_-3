@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for Register.xaml
+    /// Interaction logic for Aboutus.xaml
     /// </summary>
-    public partial class Register : Page
+    public partial class Aboutus : Page
     {
-        public Register()
+        public Aboutus()
         {
             InitializeComponent();
         }
