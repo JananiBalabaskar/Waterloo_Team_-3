@@ -1,0 +1,109 @@
+﻿<Page x:Class="Digident.AdminView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Digident"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminView">
+
+    <!-- Root Grid with Background Image -->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Adminview2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <!-- Layout Grid with Rows -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Row for DIGIDENT Header -->
+                <RowDefinition Height="Auto"/>
+                <!-- Row for Admin Account -->
+                <RowDefinition Height="Auto"/>
+                <!-- Row for Appointments Title -->
+                <RowDefinition Height="*"/>
+                <!-- Row for Main Content -->
+                <RowDefinition Height="Auto"/>
+                <!-- Row for Buttons -->
+            </Grid.RowDefinitions>
+
+            <!-- DIGIDENT Header -->
+            <TextBlock Text="DIGIDENT" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10"/>
+
+            <!-- Admin Account -->
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10">
+                <Image Source="/user-interface.png" Width="20" Height="20" Margin="5"/>
+                <TextBlock Text="Admin Account" VerticalAlignment="Center" Margin="5"/>
+            </StackPanel>
+
+            <!-- Appointments Title -->
+            <TextBlock Text="Appointments" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="10"/>
+
+            <!-- Main Content Grid -->
+            <Grid Grid.Row="3" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Navigation Buttons -->
+                <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+                    <Button Content="Patient Details" Margin="5"/>
+                    <Button Content="Doctor Details" Margin="5"/>
+                    <Button Content="Appointments" Margin="5"/>
+                    <Button Content="Feedbacks" Margin="5"/>
+                    <Button Content="Reports" Margin="5"/>
+                    <Button Content="Admin Account" Margin="5"/>
+                </StackPanel>
+
+                <!-- Data Table -->
+                <ListView Grid.Column="1" Margin="10" ItemsSource="{Binding DataItems}">
+                    <ListView.View>
+                        <GridView>
+                            <!-- Columns with headers -->
+                            <GridViewColumn Header="First Name" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding FirstName}" Margin="5" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Last Name" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding LastName}" Margin="5" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Appointment Date and Time" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding AppointmentDateTime}" Margin="5" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Reason for Visit" Width="250">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding ReasonForVisit}" Margin="5" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <!-- Buttons Row -->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Content="Edit" Width="100" Margin="5"/>
+                <Button Content="Submit" Width="100" Margin="5"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
