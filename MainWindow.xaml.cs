@@ -49,9 +49,10 @@ namespace Digident_Group3
 
         private void Register(object sender, RoutedEventArgs e)
         {
-    
 
-           
+            Register registerPage = new Register();
+            ChangePage(registerPage);
+
         }
 
         private void QuestionForm(object sender, RoutedEventArgs e)
@@ -61,10 +62,8 @@ namespace Digident_Group3
 
         private void Loginbutton(object sender, RoutedEventArgs e)
         {
-            // Create an instance of the Login page or window
+            
             Login loginPage = new Login();
-
-            // Navigate to the Login page using the ChangePage method
             ChangePage(loginPage);
           
         }

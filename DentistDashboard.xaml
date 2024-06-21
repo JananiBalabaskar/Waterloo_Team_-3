@@ -9,6 +9,8 @@
       Title="DentistDashboard">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\DENTAL5.png"/>
+        </Grid.Background>
     </Grid>
 </Page>
