@@ -24,5 +24,12 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
+
+        private void Homebutton(object sender, RoutedEventArgs e)
+        {
+            MainWindow window1 = new MainWindow();
+            window1.Show();
+            Window.GetWindow(this)?.Close();
+        }
     }
 }

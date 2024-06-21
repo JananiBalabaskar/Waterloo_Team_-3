@@ -19,6 +19,7 @@ namespace Digident_Group3
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
       
@@ -27,10 +28,7 @@ namespace Digident_Group3
 
         }
 
-        private void Homebutton(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void aboutus(object sender, RoutedEventArgs e)
         {
@@ -44,7 +42,7 @@ namespace Digident_Group3
 
         private void Contactus(object sender, RoutedEventArgs e)
         {
-
+            contact.BringIntoView();
         }
 
         private void Register(object sender, RoutedEventArgs e)
