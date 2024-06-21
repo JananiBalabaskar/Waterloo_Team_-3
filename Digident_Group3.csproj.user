@@ -7,15 +7,63 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Admin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Appointments.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DentistDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ManagementLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ManagerDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PatientDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PatientProfile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Admin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Appointments.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DentistDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Login.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ManagementLogin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ManagerDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PatientDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PatientProfile.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Register.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
