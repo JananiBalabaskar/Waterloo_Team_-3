@@ -22,7 +22,7 @@
             </Grid.Background>
            
             
-            <Image HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="196" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident.png"
+            <Image HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="196" Source="/dental (7).png"
                    Margin="274,1740,0,0" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -34,9 +34,9 @@
                 </Image.RenderTransform>
             </Image>
 
-            <Image HorizontalAlignment="Center" Height="354" Margin="0,465,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident2.png"/>
-            <Image HorizontalAlignment="Center" Height="53" Margin="0,-2,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental1.png"/>
-            <Image HorizontalAlignment="Center" Height="454" Margin="0,36,0,0" VerticalAlignment="Top" Width="780" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental.png"/>
+            <Image HorizontalAlignment="Center" Height="354" Margin="0,465,0,0" VerticalAlignment="Top" Width="780" Source="/dental (8).png"/>
+            <Image HorizontalAlignment="Center" Height="53" Margin="0,-2,0,0" VerticalAlignment="Top" Width="780" Source="/dental (4).png"/>
+            <Image HorizontalAlignment="Center" Height="454" Margin="0,36,0,0" VerticalAlignment="Top" Width="780" Source="/dental (3).png"/>
             <Button Content="Free Consultation" HorizontalAlignment="Left" Height="22" Margin="646,118,0,0"  VerticalAlignment="Top" Width="94" Click="Button_Click" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -86,7 +86,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Image x:Name="ServicesImage" HorizontalAlignment="Center" Height="456" Margin="0,817,0,0" VerticalAlignment="Top" Width="839" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\dental2.png"/>
+            <Image x:Name="ServicesImage" HorizontalAlignment="Center" Height="456" Margin="0,817,0,0" VerticalAlignment="Top" Width="839" Source="/dental (5).png"/>
             <Button Content="FAQ's" HorizontalAlignment="Left" Height="21" Margin="589,14,0,0"  VerticalAlignment="Top" Width="70" Click="QuestionForm" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -103,7 +103,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Image x:Name="ServicesImage1" HorizontalAlignment="Left" Height="440" Margin="2,1278,0,0" VerticalAlignment="Top" Width="794" Source="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\digident3.png"/>
+            <Image x:Name="ServicesImage1" HorizontalAlignment="Left" Height="440" Margin="2,1278,0,0" VerticalAlignment="Top" Width="794" Source="/dental (9).png"/>
             <Label x:Name="contact" Content="Contact us&#xA;234-764-8643&#xA;digident@gmail.com " HorizontalAlignment="Left" Margin="52,1723,0,0" VerticalAlignment="Top" Height="91" Width="168"/>
 
         </Grid>

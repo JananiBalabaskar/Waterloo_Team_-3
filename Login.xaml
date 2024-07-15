@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\DENTAL5.png"/>
+            <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
         <Button Content="Login" HorizontalAlignment="Center" Height="22" Margin="0,357,0,0"  VerticalAlignment="Top" Width="94" Click="Loginbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
             <Button.Background>
@@ -33,12 +33,16 @@
             <TextBlock Text="Username:" FontWeight="Bold" Margin="0,0,0,5" Width="296"/>
             <TextBox x:Name="UsernameTextBox" Width="302"/>
             <TextBlock x:Name="UsernameError" Foreground="Red" Text="{Binding UsernameErrorMessage}" Margin="0,0,0,5"/>
+            
             <TextBlock Text="Password:" FontWeight="Bold" Margin="0,10,0,5" Width="296"/>
-            <PasswordBox Name="PasswordBox" Margin="0,0,0,5" Width="301"/>
+            <PasswordBox x:Name="PasswordBox" Margin="0,0,0,5" Width="301"/>
             <TextBlock x:Name="PasswordError" Foreground="Red" Text="{Binding PasswordErrorMessage}" Margin="0,0,0,5"/>
+            
             <TextBlock Width="298">
                 <Hyperlink Click="RegisterHyperlink_Click">New user? Register here</Hyperlink>
             </TextBlock>
         </StackPanel>
+        
+        
     </Grid>
 </Page>

@@ -20,9 +20,8 @@ namespace Digident_Group3
         {
             InitializeComponent();
             
-        }
 
-      
+        }
         private void Booknow(object sender, RoutedEventArgs e)
         {
 
