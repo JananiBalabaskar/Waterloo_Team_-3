@@ -43,7 +43,8 @@ namespace Digident_Group3
 
         private void Contactus(object sender, RoutedEventArgs e)
         {
-            contact.BringIntoView();
+            Contactus contactusPage = new Contactus();
+            ChangePage(contactusPage);
         }
 
         private void Register(object sender, RoutedEventArgs e)

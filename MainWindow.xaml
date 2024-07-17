@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Digident_Group3"
         mc:Ignorable="d"
         Title="Dental Management system" Height="800" Width="800">
-    
+
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
 
@@ -20,8 +20,8 @@
                     <GradientStop Color="#FF107BCB" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-           
-            
+
+
             <Image HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="196" Source="/dental (7).png"
                    Margin="274,1740,0,0" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
@@ -54,7 +54,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="About Us" HorizontalAlignment="Left" Height="21" Margin="280,14,0,0"  VerticalAlignment="Top" Width="74" Click="aboutus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+            <Button Content="About Us" HorizontalAlignment="Left" Height="21" Margin="227,17,0,0"  VerticalAlignment="Top" Width="74" Click="aboutus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White"/>
@@ -62,7 +62,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Services" HorizontalAlignment="Left" Height="21" Margin="354,14,0,0"  VerticalAlignment="Top" Width="78" Click="services" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+            <Button Content="Services" HorizontalAlignment="Left" Height="21" Margin="315,15,0,0"  VerticalAlignment="Top" Width="78" Click="services" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White"/>
@@ -70,7 +70,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Contact Us" HorizontalAlignment="Left" Height="21" Margin="432,14,0,0"  VerticalAlignment="Top" Width="78" Click="Contactus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+            <Button Content="Contact Us" HorizontalAlignment="Left" Height="21" Margin="408,16,0,0"  VerticalAlignment="Top" Width="78" Click="Contactus" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White"/>
@@ -78,7 +78,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Sign Up" HorizontalAlignment="Left" Height="21" Margin="515,14,0,0"  VerticalAlignment="Top" Width="69" Click="Register" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+            <Button Content="Sign Up" HorizontalAlignment="Left" Height="20" Margin="506,16,0,0"  VerticalAlignment="Top" Width="69" Click="Register" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White"/>
@@ -87,7 +87,7 @@
                 </Button.Background>
             </Button>
             <Image x:Name="ServicesImage" HorizontalAlignment="Center" Height="456" Margin="0,817,0,0" VerticalAlignment="Top" Width="839" Source="/dental (5).png"/>
-            <Button Content="FAQ's" HorizontalAlignment="Left" Height="21" Margin="589,14,0,0"  VerticalAlignment="Top" Width="70" Click="QuestionForm" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
+            <Button Content="FAQ's" HorizontalAlignment="Left" Height="21" Margin="580,16,0,0"  VerticalAlignment="Top" Width="70" Click="QuestionForm" BorderBrush="White" Foreground="#FF48BFD9"  Padding="2,2,2,2" FontSize="10">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="White"/>
