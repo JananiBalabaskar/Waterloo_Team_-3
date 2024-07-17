@@ -92,10 +92,7 @@ namespace Digident_Group3
             }
         }
 
-        private void UsernameTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+     
 
         private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
         {

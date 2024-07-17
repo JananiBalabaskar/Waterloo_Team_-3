@@ -12,20 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
-        <Button FontWeight="Bold" Margin="344,285,344,141" HorizontalContentAlignment="Center"
-     Click="ForgotPassword_Click" BorderBrush="Transparent" Background="Transparent">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-            <TextBlock>
-     <Run Language="en-in" Text="Forgot Password?" />
-            </TextBlock>
-        </Button>
+      
         <Button Content="Login" HorizontalAlignment="Center" Height="22" Margin="0,357,0,0"  VerticalAlignment="Top" Width="94" Click="Loginbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

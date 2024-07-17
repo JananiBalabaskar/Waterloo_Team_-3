@@ -9,6 +9,26 @@
       Title="DoctorLoginPage">
 
     <Grid>
-        
-    </Grid>
+       
+            <Grid.Background>
+                <ImageBrush ImageSource="/dental (6).png"/>
+            </Grid.Background>
+
+            <Button Content="Login" HorizontalAlignment="Center" Height="22" Margin="0,357,0,0"  VerticalAlignment="Top" Width="94" Click="Loginbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF1A73BD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF1A73BD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
 </Page>

@@ -35,23 +35,30 @@ namespace Digident_Group3
             Window.GetWindow(this)?.Close();
         }
 
-        private void PatientLogin_Click(object sender, RoutedEventArgs e)
+       
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PatientLoginPage patientLoginPage = new PatientLoginPage();
-            ChangePage(patientLoginPage);
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new PatientLoginPage());
+            }
+
         }
 
-        private void DoctorLogin_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DoctorLoginPage doctorLoginPage = new DoctorLoginPage();
-            ChangePage(doctorLoginPage);
+            
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DoctorLoginPage());
+            }
+
         }
 
-        public void ChangePage(Page page)
-        {
-            Content = page;
-        }
 
 
+       
     }
 }

@@ -12,7 +12,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
-
         <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -21,14 +20,15 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        
-        <Button HorizontalAlignment="Left" Margin="142,142,0,0" VerticalAlignment="Top" Click="PatientLogin_Click">
-            <Image Height="180" Width="160" Source="/2.png"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="190,170,0,0" VerticalAlignment="Top" Height="130" Width="136" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/2.png" TileMode="None" Stretch="UniformToFill"/>
+            </Button.Background>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="472,142,0,0" VerticalAlignment="Top" Click="DoctorLogin_Click">
-    <Image Height="180" Width="160" Source="/1.png"/>
-</Button>
-
-
+        <Button Content= "" HorizontalAlignment="Left" Margin="510,170,0,0" VerticalAlignment="Top" Height="130" Width="134" Click="Button_Click_1">
+            <Button.Background>
+                <ImageBrush ImageSource="/1.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>
