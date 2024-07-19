@@ -12,7 +12,9 @@
   <ItemGroup>
     <None Remove="1.png" />
     <None Remove="2.png" />
+    <None Remove="background_1.jpg" />
     <None Remove="dental %281%29.png" />
+    <None Remove="dental %2810%29.png" />
     <None Remove="DENTAL %282%29.png" />
     <None Remove="dental %283%29.png" />
     <None Remove="dental %284%29.png" />
@@ -21,6 +23,7 @@
     <None Remove="dental %287%29.png" />
     <None Remove="dental %288%29.png" />
     <None Remove="dental %289%29.png" />
+    <None Remove="Doctor %281%29.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +34,9 @@
   <ItemGroup>
     <Resource Include="1.png" />
     <Resource Include="2.png" />
+    <Resource Include="background_1.jpg" />
+    <Resource Include="dental (1).png" />
+    <Resource Include="dental (10).png" />
     <Resource Include="dental (3).png" />
     <Resource Include="dental (4).png" />
     <Resource Include="dental (5).png" />
@@ -38,6 +44,7 @@
     <Resource Include="dental (7).png" />
     <Resource Include="dental (8).png" />
     <Resource Include="dental (9).png" />
+    <Resource Include="Doctor (1).png" />
   </ItemGroup>
 
 </Project>

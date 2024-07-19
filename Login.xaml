@@ -27,7 +27,7 @@
         </Button>
         <Button Content= "" HorizontalAlignment="Left" Margin="510,170,0,0" VerticalAlignment="Top" Height="130" Width="134" Click="Button_Click_1">
             <Button.Background>
-                <ImageBrush ImageSource="/1.png" Stretch="UniformToFill"/>
+                <ImageBrush ImageSource="/Doctor (1).png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
        
