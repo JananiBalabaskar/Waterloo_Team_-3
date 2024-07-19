@@ -16,7 +16,16 @@
     <Compile Update="Appointments.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Book Appointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Contactus.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DentistDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DoctorLoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -29,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PatientDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PatientLoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PatientProfile.xaml.cs">
@@ -48,7 +60,16 @@
     <Page Update="Appointments.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Book Appointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Contactus.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DentistDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DoctorLoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -64,6 +85,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PatientDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PatientLoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PatientProfile.xaml">

@@ -24,8 +24,7 @@ namespace Digident_Group3
 
         public Admin()
         {
-            InitializeComponent();
-
+ 
             // Initialize data
             DataItems = new List<DataItem>
             {

@@ -1,4 +1,5 @@
 ﻿using Digident_Group3;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,38 +22,10 @@ namespace Digident_Group3
     /// </summary>
     public partial class Login : Page
     {
+        
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void Loginbutton(object sender, RoutedEventArgs e)
-        {
-
-
-
-            // Reset error messages
-            UsernameError.Text = "";
-            PasswordError.Text = "";
-
-            // Validate input
-            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
-            {
-                UsernameError.Text = "Username is required.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
-            {
-                PasswordError.Text = "Password is required.";
-                return;
-            }
-
-            // Get username and password from input fields
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
-
-          
         }
 
         private void Homebutton(object sender, RoutedEventArgs e)
@@ -62,14 +35,30 @@ namespace Digident_Group3
             Window.GetWindow(this)?.Close();
         }
 
-        private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
+       
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.ChangePage(new Register());
+                mainWindow.ChangePage(new PatientLoginPage());
             }
-        }
-    }
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DoctorLoginPage());
+            }
+
+        }
+
+
+
+       
+    }
 }
