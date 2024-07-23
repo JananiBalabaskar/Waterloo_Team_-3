@@ -47,12 +47,12 @@
 
                 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
-                    <Button Content="Book Appointments" Margin="5" Click="Button_Click"/>
-                    <Button Content="Appointments" Margin="5"/>
-                    <Button Content="Reports" Margin="5"/>
-                    <Button Content="Feedbacks" Margin="5"/>
-                    <Button Content="Patient Profile" Margin="5" Click="Button_Click_1"/>
-                    <Button Content="Account Settings" Margin="5"/>
+                    <Button Content="Book Appointments" Margin="5" Click="BookAppointments"/>
+                    <Button Content="Appointments" Margin="5" Click="Appointments"/>
+                    <Button Content="Reports" Margin="5" Click="Reports"/>
+                    <Button Content="Feedbacks" Margin="5" Click="Feedbacks"/>
+                    <Button Content="Patient Profile" Margin="5" Click="PatientProfile"/>
+                    <Button Content="Account Settings" Margin="5" Click="Settings"/>
                 </StackPanel>
                 <DataGrid x:Name="DetailsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True">
                     <DataGrid.Style>

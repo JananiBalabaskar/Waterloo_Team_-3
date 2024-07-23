@@ -25,7 +25,8 @@ namespace Digident_Group3
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void BookAppointments(object sender, RoutedEventArgs e)
         {
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
@@ -34,7 +35,27 @@ namespace Digident_Group3
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Appointments(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Reports(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Feedbacks(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PatientProfile(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Settings(object sender, RoutedEventArgs e)
         {
 
         }
