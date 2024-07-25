@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace Digident_Group3
 {
     /// <summary>
@@ -26,7 +29,7 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
-     
+
         private bool ValidateAppointment()
         {
             bool isValid = true;
@@ -37,11 +40,18 @@ namespace Digident_Group3
             isValid &= ValidatePhoneNumber(txtPhoneNumber.Text);
             // check Address
             isValid &= ValidateAddress(txtAddress.Text);
+            // check Appointment Type
             isValid &= !string.IsNullOrWhiteSpace(cmbAppointmentType.Text);
+            // check Appointment Date
+            isValid &= dpAppointmentDate.SelectedDate.HasValue;
+            // check Appointment Time
+            isValid &= !string.IsNullOrWhiteSpace(cmbAppointmentTime.Text);
+            // check Patient Allergy Info
             isValid &= ValidatePatientAllergy(txtPatientinfo.Text);
 
             return isValid;
         }
+
         // Error Handling 
         private bool ValidatePatientName(string PatientName)
         {
@@ -59,6 +69,7 @@ namespace Digident_Group3
             ClearError(txtPatientName);
             return true;
         }
+
         private bool ValidatePhoneNumber(string PhoneNumber)
         {
             if (!Regex.IsMatch(PhoneNumber, @"^\d{10}$") || PhoneNumber.All(c => c == '0'))
@@ -70,6 +81,7 @@ namespace Digident_Group3
             ClearError(txtPhoneNumber);
             return true;
         }
+
         private bool ValidateAddress(string Address)
         {
             if (!Regex.IsMatch(Address, @"^[a-zA-Z0-9\s\-\.,#]+$"))
@@ -93,12 +105,14 @@ namespace Digident_Group3
             ClearError(txtPatientinfo);
             return true;
         }
+
         private void SetError(TextBox textBox, string errorMessage)
         {
             TextBlock err = GetErrorTextBlock(textBox);
             err.Text = errorMessage;
             err.Visibility = Visibility.Visible;
         }
+
         // Remove error message 
         private void ClearError(TextBox textBox)
         {
@@ -106,7 +120,7 @@ namespace Digident_Group3
             err.Visibility = Visibility.Collapsed;
         }
 
-        // Get error message when handlng error
+        // Get error message when handling error
         private TextBlock GetErrorTextBlock(TextBox textBox)
         {
             switch (textBox.Name)
@@ -131,6 +145,8 @@ namespace Digident_Group3
             txtPhoneNumber.Clear();
             txtAddress.Clear();
             cmbAppointmentType.SelectedIndex = -1;
+            dpAppointmentDate.SelectedDate = null;
+            cmbAppointmentTime.SelectedIndex = -1;
             txtPatientinfo.Clear();
         }
 
@@ -140,6 +156,8 @@ namespace Digident_Group3
             public string PhoneNumber { get; set; } = "";
             public string Address { get; set; } = "";
             public string AppointmentType { get; set; } = "";
+            public DateTime AppointmentDate { get; set; }
+            public string AppointmentTime { get; set; } = "";
             public string PatientInfo { get; set; } = "";
         }
 
@@ -153,24 +171,60 @@ namespace Digident_Group3
                     PhoneNumber = txtPhoneNumber.Text,
                     Address = txtAddress.Text,
                     AppointmentType = cmbAppointmentType.Text,
+                    AppointmentDate = dpAppointmentDate.SelectedDate.Value,
+                    AppointmentTime = cmbAppointmentTime.Text,
                     PatientInfo = txtPatientinfo.Text
                 };
 
-                MessageBox.Show("Appointment booked successfully!");
-                MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-                if (mainWindow != null)
+                try
                 {
-                    mainWindow.ChangePage(new PatientDashboard());
-                }
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand("InsertAppointments", connection))
+                        {
+                            command.CommandType = System.Data.CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@PatientName", appointment.PatientName);
+                            command.Parameters.AddWithValue("@PhoneNumber", appointment.PhoneNumber);
+                            command.Parameters.AddWithValue("@Address", appointment.Address);
+                            command.Parameters.AddWithValue("@AppointmentType", appointment.AppointmentType);
+                            command.Parameters.AddWithValue("@AppointmentDate", appointment.AppointmentDate);
+                            command.Parameters.AddWithValue("@AppointmentTime", appointment.AppointmentTime);
+                            command.Parameters.AddWithValue("@PatientAllergy", appointment.PatientInfo);
 
-                ClearInputFields();
+                            command.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Appointment booked successfully!");
+                    MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        mainWindow.ChangePage(new PatientDashboard());
+                    }
+
+                    ClearInputFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while booking the appointment: {ex.Message}");
+                }
             }
             else
             {
                 MessageBox.Show("Please fill in all required fields with valid data.");
             }
         }
+
+       
+
+        private void Backbutton(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new PatientDashboard());
+            }
+        }
     }
-
-
 }
