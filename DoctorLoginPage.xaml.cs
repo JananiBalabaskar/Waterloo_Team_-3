@@ -1,6 +1,4 @@
-﻿using Digident_Group3;
-using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,15 +16,18 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for DoctorLoginPage.xaml
     /// </summary>
-    public partial class Login : Page
+
+   // private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
+    public partial class DoctorLoginPage : Page
     {
-        
-        public Login()
+        public DoctorLoginPage()
         {
             InitializeComponent();
         }
+
+        
 
         private void Homebutton(object sender, RoutedEventArgs e)
         {
@@ -35,30 +36,24 @@ namespace Digident_Group3
             Window.GetWindow(this)?.Close();
         }
 
-       
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.ChangePage(new PatientLoginPage());
-            }
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             
-            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.ChangePage(new DoctorLoginPage());
-            }
-
         }
 
+        private void JobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
 
-
-       
+        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

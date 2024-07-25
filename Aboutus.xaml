@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource= "C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\Digident7.png"/>
+            <ImageBrush ImageSource= "/dental (10).png"/>
         </Grid.Background>
         <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="600,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
             <Button.Background>

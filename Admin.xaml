@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Adminview2.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/dental (6).png" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <!-- Layout Grid with Rows -->
@@ -33,7 +33,7 @@
 
             <!-- Admin Account -->
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10">
-                <Image Source="/user-interface.png" Width="20" Height="20" Margin="5"/>
+                <Image Source="/dental (1).png" Width="20" Height="20" Margin="5"/>
                 <TextBlock Text="Admin Account" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
 

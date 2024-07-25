@@ -6,6 +6,47 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <BaseOutputPath>C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\bin\Debug\net8.0-windows</BaseOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="1.png" />
+    <None Remove="2.png" />
+    <None Remove="background_1.jpg" />
+    <None Remove="dental %281%29.png" />
+    <None Remove="dental %2810%29.png" />
+    <None Remove="DENTAL %282%29.png" />
+    <None Remove="dental %283%29.png" />
+    <None Remove="dental %284%29.png" />
+    <None Remove="dental %285%29.png" />
+    <None Remove="dental %286%29.png" />
+    <None Remove="dental %287%29.png" />
+    <None Remove="dental %288%29.png" />
+    <None Remove="dental %289%29.png" />
+    <None Remove="Doctor %281%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="NUnit" Version="4.1.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="1.png" />
+    <Resource Include="2.png" />
+    <Resource Include="background_1.jpg" />
+    <Resource Include="dental (1).png" />
+    <Resource Include="dental (10).png" />
+    <Resource Include="dental (3).png" />
+    <Resource Include="dental (4).png" />
+    <Resource Include="dental (5).png" />
+    <Resource Include="dental (6).png" />
+    <Resource Include="dental (7).png" />
+    <Resource Include="dental (8).png" />
+    <Resource Include="dental (9).png" />
+    <Resource Include="Doctor (1).png" />
+  </ItemGroup>
 
 </Project>
