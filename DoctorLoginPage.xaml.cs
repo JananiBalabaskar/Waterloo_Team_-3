@@ -18,6 +18,8 @@ namespace Digident_Group3
     /// <summary>
     /// Interaction logic for DoctorLoginPage.xaml
     /// </summary>
+
+   // private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
     public partial class DoctorLoginPage : Page
     {
         public DoctorLoginPage()
@@ -25,16 +27,33 @@ namespace Digident_Group3
             InitializeComponent();
         }
 
-        private void Loginbutton(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void Homebutton(object sender, RoutedEventArgs e)
         {
             MainWindow window1 = new MainWindow();
             window1.Show();
             Window.GetWindow(this)?.Close();
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void JobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
+
+        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

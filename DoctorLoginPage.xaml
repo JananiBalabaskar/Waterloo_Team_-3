@@ -12,15 +12,88 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
-        <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF8ADAED"/>
-                        <GradientStop Color="#FF1A73BD" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
         
-        
-        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF8ADAED"/>
+                            <GradientStop Color="#FF1A73BD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+
+
+
+
+                <!-- Registration Form -->
+                <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Registration Form Title -->
+                    <TextBlock Text="Clinic Login" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Grid.Row="0" Grid.ColumnSpan="2" Foreground="Black"/>
+
+                    <!-- Registration Form Fields -->
+                    <TextBlock Text="Email:" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Margin="0,24,0,0" Foreground="Black" Grid.RowSpan="2" />
+                    <TextBox x:Name="EmailTextBox" Margin="52,26,0,10" Grid.Row="1" GotFocus="EmailTextBox_GotFocus" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <TextBlock x:Name="EmailErrorText" Foreground="Red" VerticalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,0"/>
+
+                    <TextBlock Text="Password:" VerticalAlignment="Top" Grid.Row="3" Grid.Column="0" Margin="-21,12,21,0" Foreground="Black"/>
+                    <PasswordBox x:Name="PasswordBox" Margin="0,10" Grid.Row="3" Grid.Column="1" GotFocus="PasswordBox_GotFocus"/>
+                    <TextBlock x:Name="PasswordErrorText" Foreground="Red" VerticalAlignment="Top" Grid.Row="17" Grid.ColumnSpan="2" Margin="-5,10,5,0"/>
+
+                    <TextBlock Text="Role:" VerticalAlignment="Center" Grid.Row="17" Grid.Column="0" Margin="5,0,343,0" Foreground="Black" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="jobComboBox" Grid.Row="17" Grid.Column="1" Margin="0,10" SelectionChanged="JobComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Dentist"/>
+                        <ComboBoxItem Content="Customer representatives"/>
+                        <ComboBoxItem Content="Manager"/>
+                    </ComboBox>
+                    <TextBlock x:Name="LicenseNumberText" Text="License number" VerticalAlignment="Center" Grid.Row="18" Grid.Column="0" Margin="0,10" Foreground="White" Visibility="Collapsed"/>
+                    <TextBox x:Name="jobTextBox" Margin="0,10" Grid.Row="18" Grid.Column="1" Visibility="Collapsed"/>
+
+                    <Button Content="Submit" Width="100" Margin="98,10,0,0" HorizontalAlignment="Left" Grid.Row="18" Click="SubmitButton_Click" Grid.Column="1" Height="20" VerticalAlignment="Top" BorderBrush="#FF8ADAED" Foreground="White">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF8ADAED"/>
+                                <GradientStop Color="#FF1A73BD" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
 </Page>
