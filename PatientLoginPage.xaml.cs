@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Digident_Group3.Interfaces;
+using Digident_Group3.Services;
 using Microsoft.Data.SqlClient;
+using System.Configuration;
 
 namespace Digident_Group3
 {
@@ -21,11 +24,21 @@ namespace Digident_Group3
     /// </summary>
     public partial class PatientLoginPage : Page
     {
+        private readonly IDatabaseService _databaseService;
+        private readonly IMessageBoxService _messageBoxService;
+
         private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
 
-        public PatientLoginPage()
+        public PatientLoginPage(IDatabaseService databaseService, IMessageBoxService messageBoxService)
         {
             InitializeComponent();
+            _databaseService = databaseService;
+            _messageBoxService = messageBoxService;
+        }
+
+        public PatientLoginPage()
+            : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
+        {
         }
 
         private void Homebutton(object sender, RoutedEventArgs e)
@@ -35,32 +48,32 @@ namespace Digident_Group3
             Window.GetWindow(this)?.Close();
         }
 
-        private void Loginbutton(object sender, RoutedEventArgs e)
+        internal void Loginbutton(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
+            string username = UsernameTextBox.Text.Trim();
+            string password = PasswordBox.Password.Trim();
+
+            Console.WriteLine($"Username: '{username}', Password: '{password}'");
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please enter both username and password.");
+                _messageBoxService.Show("Please enter both username and password.", "Error", MessageBoxButton.OK);
                 return;
             }
 
-            if (ValidateCredentials(username, password))
+            if (_databaseService.ValidateCredentials(username, password))
             {
+                _messageBoxService.Show("Login successful!", "Success", MessageBoxButton.OK);
 
-                MessageBox.Show("Login successful!");
-
-                PatientDashboard userDashboard = new PatientDashboard();
-                MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
                 if (mainWindow != null)
                 {
-                    mainWindow.ChangePage(userDashboard);
+                    mainWindow.ChangePage(new PatientDashboard());
                 }
             }
             else
             {
-                MessageBox.Show("Invalid username or password.");
+                _messageBoxService.Show("Invalid username or password.", "Error", MessageBoxButton.OK);
             }
         }
 
@@ -77,7 +90,6 @@ namespace Digident_Group3
                         command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Password", password);
 
-
                         Console.WriteLine($"Executing SQL query: {command.CommandText}");
 
                         int count = (int)command.ExecuteScalar();
@@ -92,8 +104,6 @@ namespace Digident_Group3
             }
         }
 
-     
-
         private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
         {
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
@@ -104,4 +114,3 @@ namespace Digident_Group3
         }
     }
 }
-
