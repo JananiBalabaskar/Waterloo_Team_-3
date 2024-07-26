@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Digident_Group3.Interfaces;
+using Digident_Group3.Services;
+using System.Configuration;
 
 namespace Digident_Group3
 {
@@ -22,11 +25,23 @@ namespace Digident_Group3
     /// </summary>
     public partial class Register : Page
     {
-        private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
-        public Register()
+        private readonly IDatabaseService _databaseService;
+        private readonly IMessageBoxService _messageBoxService;
+
+        // Constructor that accepts IDatabaseService
+        public Register(IDatabaseService databaseService, IMessageBoxService messageBoxService)
         {
             InitializeComponent();
+            _databaseService = databaseService;
+            _messageBoxService = messageBoxService;
         }
+
+        // Default constructor for scenarios where no service is injected
+        public Register()
+        : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
+        {
+        }
+
 
         private void Homebutton(object sender, RoutedEventArgs e)
         {
@@ -34,11 +49,9 @@ namespace Digident_Group3
             window1.Show();
             Window.GetWindow(this)?.Close();
         }
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        internal void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             ValidateEmail();
-            //ValidatePassword();
-            //ValidateConfirmPassword();
             ValidateFirstName();
             ValidateLastName();
             ValidateDateOfBirth();
@@ -54,67 +67,49 @@ namespace Digident_Group3
                 !string.IsNullOrEmpty(AddressErrorText.Text) ||
                 !string.IsNullOrEmpty(PhoneNumberErrorText.Text))
             {
-                MessageBox.Show("Please check the fields!");
+                _messageBoxService?.Show("Please check the fields!", "Error", MessageBoxButton.OK);
                 return;
             }
 
-            string email = EmailTextBox.Text;
-            string password = PasswordBox.Password;
-            string firstName = FirstNameTextBox.Text;
-            string lastName = LastNameTextBox.Text;
-            DateTime dateOfBirth = DateOfBirthPicker.SelectedDate ?? DateTime.MinValue;
-            string address = AddressTextBox.Text;
-            string phoneNumber = PhoneNumberTextBox.Text;
+            string email = EmailTextBox?.Text;
+            string password = PasswordBox?.Password;
+            string firstName = FirstNameTextBox?.Text;
+            string lastName = LastNameTextBox?.Text;
+            DateTime dateOfBirth = DateOfBirthPicker?.SelectedDate ?? DateTime.MinValue;
+            string address = AddressTextBox?.Text;
+            string phoneNumber = PhoneNumberTextBox?.Text;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (_databaseService == null)
             {
-                try
+                _messageBoxService?.Show("Database service is not available.", "Error", MessageBoxButton.OK);
+                return;
+            }
+
+            bool isRegistered = _databaseService.RegisterUser(email, password, firstName, lastName, dateOfBirth, address, phoneNumber);
+
+            if (isRegistered)
+            {
+                MessageBoxResult? result = _messageBoxService?.Show("User registered successfully! Click OK to proceed to login.", "Success", MessageBoxButton.OK);
+
+                if (result == MessageBoxResult.OK)
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("RegisterUser", connection))
-                    {
-                        command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Password", password);
-                        command.Parameters.AddWithValue("@FirstName", firstName);
-                        command.Parameters.AddWithValue("@LastName", lastName);
-                        command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
-                        command.Parameters.AddWithValue("@Address", address);
-                        command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBoxResult result = MessageBox.Show("User registered successfully! Click OK to proceed to login.", "Success", MessageBoxButton.OK);
-                            if (result == MessageBoxResult.OK)
-                            {
-
-                                MainWindow window1 = new MainWindow();
-                                window1.Show();
-                                Window.GetWindow(this)?.Close();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("User registration failed.");
-                        }
-                    }
+                    MainWindow window1 = new MainWindow();
+                    window1.Show();
+                    Window.GetWindow(this)?.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                }
+            }
+            else
+            {
+                _messageBoxService?.Show("User registration failed.", "Error", MessageBoxButton.OK);
             }
         }
 
-        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
+        public void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             EmailErrorText.Text = "";
         }
 
-        private void ValidateEmail()
+        public void ValidateEmail()
         {
             string email = EmailTextBox.Text.Trim();
             if (string.IsNullOrEmpty(email))
@@ -132,7 +127,7 @@ namespace Digident_Group3
             EmailErrorText.Text = "";
         }
 
-        private bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
             return Regex.IsMatch(email, pattern);
@@ -143,7 +138,7 @@ namespace Digident_Group3
             PasswordErrorText.Text = "";
         }
 
-        private void ValidatePassword()
+        public void ValidatePassword()
         {
             string password = PasswordBox.Password.Trim();
             if (string.IsNullOrEmpty(password))
@@ -161,17 +156,17 @@ namespace Digident_Group3
             PasswordErrorText.Text = "";
         }
 
-        private bool IsPasswordValid(string password)
+        public bool IsPasswordValid(string password)
         {
             return Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d]).{8,}$");
         }
 
-        private void ConfirmPasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        public void ConfirmPasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             ConfirmPasswordErrorText.Text = "";
         }
 
-        private void ValidateConfirmPassword()
+        public void ValidateConfirmPassword()
         {
             string password = PasswordBox.Password.Trim();
             string confirmPassword = ConfirmPasswordBox.Password.Trim();
@@ -191,12 +186,12 @@ namespace Digident_Group3
             ConfirmPasswordErrorText.Text = "";
         }
 
-        private void FirstNameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        public void FirstNameTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             ValidateFirstName();
         }
 
-        private void ValidateFirstName()
+        public void ValidateFirstName()
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
             {
@@ -212,7 +207,7 @@ namespace Digident_Group3
             }
         }
 
-        private void ValidateLastName()
+        public void ValidateLastName()
         {
             string lastName = LastNameTextBox.Text.Trim();
 
@@ -237,12 +232,12 @@ namespace Digident_Group3
             LastNameErrorText.Text = "";
         }
 
-        private void DateOfBirthPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        public void DateOfBirthPicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             ValidateDateOfBirth();
         }
 
-        private void ValidateDateOfBirth()
+        public void ValidateDateOfBirth()
         {
             if (DateOfBirthPicker.SelectedDate == null || DateOfBirthPicker.SelectedDate > DateTime.Now)
             {
@@ -254,7 +249,7 @@ namespace Digident_Group3
             }
         }
 
-        private void ValidateAddress()
+        public void ValidateAddress()
         {
             string address = AddressTextBox.Text.Trim();
 
@@ -273,7 +268,7 @@ namespace Digident_Group3
             AddressErrorText.Text = "";
         }
 
-        private void ValidatePhoneNumber()
+        public void ValidatePhoneNumber()
         {
             string phoneNumber = PhoneNumberTextBox.Text.Trim();
 

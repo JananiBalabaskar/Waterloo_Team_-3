@@ -1,4 +1,6 @@
 ﻿using Digident_Group3;
+using Digident_Group3.Interfaces;
+using Digident_Group3.Services;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Digident_Group3.Interfaces;
+using Digident_Group3.Services;
+using System.Configuration;
 
 namespace Digident_Group3
 {
@@ -22,11 +27,24 @@ namespace Digident_Group3
     /// </summary>
     public partial class Login : Page
     {
-        
-        public Login()
+
+        private readonly IDatabaseService _databaseService;
+        private readonly IMessageBoxService _messageBoxService;
+        public Login(IDatabaseService databaseService, IMessageBoxService messageBoxService)
         {
             InitializeComponent();
+
+            // Create an instance of DatabaseService
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString;
+            // Create an instance of DatabaseService with the connection string
+            _databaseService = databaseService; // No need to pass the connection string
+            _messageBoxService = messageBoxService;
         }
+        public Login()
+    : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
+        {
+        }
+
 
         private void Homebutton(object sender, RoutedEventArgs e)
         {
@@ -41,7 +59,11 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.ChangePage(new PatientLoginPage());
+                string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
+                
+                var databaseService = new DatabaseService(connectionString);
+
+                mainWindow.ChangePage(new PatientLoginPage(databaseService, _messageBoxService));
             }
 
         }
