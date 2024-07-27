@@ -13,7 +13,7 @@
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
         
-        <ListView Name="AppointmentsListView" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="300">
+      <!--  <ListView Name="AppointmentsListView" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="300">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding AppointmentID}" Width="50"/>
@@ -23,6 +23,27 @@
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding AppointmentType}" Width="150"/>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView> -->
+         <!-- DataGrid to display appointments -->
+        <DataGrid x:Name="AppointmentsDataGrid"
+                  AutoGenerateColumns="False"
+                  Margin="10,10,10,80"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Appointment ID" Binding="{Binding AppointmentId}" />
+                <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" />
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
+                <DataGridTextColumn Header="Details" Binding="{Binding Details}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Buttons for Update and Delete -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
+            <Button x:Name="UpdateButton" Content="Update" Width="100" Margin="5" Click="UpdateButton_Click" />
+            <Button x:Name="DeleteButton" Content="Delete" Width="100" Margin="5" Click="DeleteButton_Click" />
+        </StackPanel>
     </Grid>
 </Page>

@@ -24,5 +24,35 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
+
+        private void BookAppointments(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Appointments(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Reports(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PatientProfile(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Feedbacks(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="1.png" />
     <None Remove="2.png" />
+    <None Remove="background.jpg" />
     <None Remove="background_1.jpg" />
     <None Remove="dental %281%29.png" />
     <None Remove="dental %2810%29.png" />
@@ -36,6 +37,7 @@
   <ItemGroup>
     <Resource Include="1.png" />
     <Resource Include="2.png" />
+    <Resource Include="background.jpg" />
     <Resource Include="background_1.jpg" />
     <Resource Include="dental (1).png" />
     <Resource Include="dental (10).png" />

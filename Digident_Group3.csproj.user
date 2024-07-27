@@ -25,6 +25,9 @@
     <Compile Update="Contactus.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CustomerRepDash.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DentistDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -35,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ManagerDash.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PatientDashboard.xaml.cs">
@@ -69,6 +75,9 @@
     <Page Update="Contactus.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="CustomerRepDash.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DentistDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -82,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ManagerDash.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PatientDashboard.xaml">

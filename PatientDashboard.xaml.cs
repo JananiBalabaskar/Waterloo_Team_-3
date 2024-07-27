@@ -37,9 +37,15 @@ namespace Digident_Group3
 
         private void Appointments(object sender, RoutedEventArgs e)
         {
-
+            string username = GetCurrentUsername(); // Retrieve the username
+            AppointmentPage appointmentPage = new AppointmentPage(username);
+            //appointmentPage.Show();
+            //this.Close();
         }
-
+        private string GetCurrentUsername()
+        {
+            return UserSession.CurrentUsername;
+        }
         private void Reports(object sender, RoutedEventArgs e)
         {
 

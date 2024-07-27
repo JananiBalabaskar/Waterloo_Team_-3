@@ -52,7 +52,6 @@
                     <Button Content="Reports" Margin="5" Click="Reports"/>
                     <Button Content="Feedbacks" Margin="5" Click="Feedbacks"/>
                     <Button Content="Patient Profile" Margin="5" Click="PatientProfile"/>
-                    <Button Content="Account Settings" Margin="5" Click="Settings"/>
                 </StackPanel>
                 <DataGrid x:Name="DetailsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True">
                     <DataGrid.Style>
