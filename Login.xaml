@@ -10,16 +10,8 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\DENTAL5.png"/>
+            <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
-        <Button Content="Login" HorizontalAlignment="Center" Height="22" Margin="0,357,0,0"  VerticalAlignment="Top" Width="94" Click="Loginbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF8ADAED"/>
-                    <GradientStop Color="#FF1A73BD" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
         <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0"  VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,17 +20,16 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <StackPanel Margin="20,78,20,98">
-            <TextBlock Text="Login" FontWeight="Bold" FontSize="18" Margin="0,0,0,10" Width="578"/>
-            <TextBlock Text="Username:" FontWeight="Bold" Margin="0,0,0,5" Width="296"/>
-            <TextBox x:Name="UsernameTextBox" Width="302"/>
-            <TextBlock x:Name="UsernameError" Foreground="Red" Text="{Binding UsernameErrorMessage}" Margin="0,0,0,5"/>
-            <TextBlock Text="Password:" FontWeight="Bold" Margin="0,10,0,5" Width="296"/>
-            <PasswordBox Name="PasswordBox" Margin="0,0,0,5" Width="301"/>
-            <TextBlock x:Name="PasswordError" Foreground="Red" Text="{Binding PasswordErrorMessage}" Margin="0,0,0,5"/>
-            <TextBlock Width="298">
-                <Hyperlink Click="RegisterHyperlink_Click">New user? Register here</Hyperlink>
-            </TextBlock>
-        </StackPanel>
+        <Button Content="" HorizontalAlignment="Left" Margin="190,170,0,0" VerticalAlignment="Top" Height="130" Width="136" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/2.png" TileMode="None" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Content= "" HorizontalAlignment="Left" Margin="510,170,0,0" VerticalAlignment="Top" Height="130" Width="134" Click="Button_Click_1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Doctor (1).png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+       
     </Grid>
 </Page>

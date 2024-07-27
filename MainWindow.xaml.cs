@@ -8,6 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Digident_Group3.Interfaces;
+using Digident_Group3.Services;
+using System.Configuration;
 
 namespace Digident_Group3
 {
@@ -16,13 +19,32 @@ namespace Digident_Group3
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly IDatabaseService _databaseService;
+        private readonly IMessageBoxService _messageBoxService;
         public MainWindow()
         {
             InitializeComponent();
-            
+            // Retrieve the connection string from App.config
+            string connectionString = GetConnectionString("MyDbConnectionString");
+
+
+            _databaseService = new DatabaseService(connectionString);
+            _messageBoxService = new MessageBoxService();
+            //ShowLoginPage();
+
+        }
+        private string GetConnectionString(string name)
+        {
+            var settings = ConfigurationManager.ConnectionStrings[name];
+            return settings?.ConnectionString;
         }
 
-      
+        private void ShowLoginPage()
+        {
+
+            PatientLoginPage loginPage = new PatientLoginPage(_databaseService, _messageBoxService);
+            ChangePage(loginPage);
+        }
         private void Booknow(object sender, RoutedEventArgs e)
         {
 
@@ -44,13 +66,14 @@ namespace Digident_Group3
 
         private void Contactus(object sender, RoutedEventArgs e)
         {
-            contact.BringIntoView();
+            Contactus contactusPage = new Contactus();
+            ChangePage(contactusPage);
         }
 
         private void Register(object sender, RoutedEventArgs e)
         {
 
-            Register registerPage = new Register();
+            Register registerPage = new Register(_databaseService, _messageBoxService);
             ChangePage(registerPage);
 
         }
