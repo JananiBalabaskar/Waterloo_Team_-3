@@ -52,7 +52,11 @@ namespace Digident_Group3
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DoctorLoginPage());
+            }
         }
     }
 }

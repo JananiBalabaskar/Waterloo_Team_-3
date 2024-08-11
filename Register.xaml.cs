@@ -20,9 +20,6 @@ using System.Configuration;
 
 namespace Digident_Group3
 {
-    /// <summary>
-    /// Interaction logic for Register.xaml
-    /// </summary>
     public partial class Register : Page
     {
         private readonly IDatabaseService _databaseService;
@@ -38,10 +35,9 @@ namespace Digident_Group3
 
         // Default constructor for scenarios where no service is injected
         public Register()
-        : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
+            : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
         {
         }
-
 
         private void Homebutton(object sender, RoutedEventArgs e)
         {
@@ -49,6 +45,7 @@ namespace Digident_Group3
             window1.Show();
             Window.GetWindow(this)?.Close();
         }
+
         internal void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             ValidateEmail();
@@ -86,9 +83,9 @@ namespace Digident_Group3
                 return;
             }
 
-            bool isRegistered = _databaseService.RegisterUser(email, password, firstName, lastName, dateOfBirth, address, phoneNumber);
+            int userId = _databaseService.RegisterUser(email, password, firstName, lastName, dateOfBirth, address, phoneNumber);
 
-            if (isRegistered)
+            if (userId > 0)
             {
                 MessageBoxResult? result = _messageBoxService?.Show("User registered successfully! Click OK to proceed to login.", "Success", MessageBoxButton.OK);
 
@@ -104,6 +101,8 @@ namespace Digident_Group3
                 _messageBoxService?.Show("User registration failed.", "Error", MessageBoxButton.OK);
             }
         }
+
+        // Validation and other methods remain the same...
 
         public void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
         {

@@ -16,23 +16,31 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for DoctorLogin.xaml
+    /// Interaction logic for Appointment.xaml
     /// </summary>
-    public partial class DoctorLogin : Page
+    public partial class Appointment : Page
     {
-        public DoctorLogin()
+        public Appointment()
         {
             InitializeComponent();
         }
 
-        private void Homebutton(object sender, RoutedEventArgs e)
+        private void ScheduleAppointment_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window1 = new MainWindow();
-            window1.Show();
-            Window.GetWindow(this)?.Close();
+
         }
 
-        private void Loginbutton(object sender, RoutedEventArgs e)
+        private void UpdateAppointment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteAppointment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LbAppointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

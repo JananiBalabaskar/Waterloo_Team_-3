@@ -8,7 +8,10 @@ namespace Digident_Group3.Interfaces
 {
     public interface IDatabaseService
     {
-        bool ValidateCredentials(string email, string password);
-        bool RegisterUser(string email, string password, string firstName, string lastName, DateTime dateOfBirth, string address, string phoneNumber);
+        int RegisterUser(string email, string password, string firstName, string lastName, DateTime dateOfBirth, string address, string phoneNumber);
+        int ValidateCredentials(string email, string password); // Add this method to the interface
     }
+
+
+
 }

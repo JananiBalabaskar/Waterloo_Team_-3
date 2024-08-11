@@ -13,6 +13,9 @@
     <Compile Update="Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Appointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AppointmentPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,10 +34,13 @@
     <Compile Update="DentistDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="DoctorLogin.xaml.cs">
+    <Compile Update="DoctorLoginPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="DoctorLoginPage.xaml.cs">
+    <Compile Update="EditAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Feedbacks.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -55,12 +61,18 @@
     <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Reports.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Aboutus.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Appointment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AppointmentPage.xaml">
@@ -81,10 +93,13 @@
     <Page Update="DentistDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DoctorLogin.xaml">
+    <Page Update="DoctorLoginPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DoctorLoginPage.xaml">
+    <Page Update="EditAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Feedbacks.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -106,6 +121,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Reports.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

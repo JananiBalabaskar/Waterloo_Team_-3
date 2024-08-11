@@ -32,7 +32,7 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10">
                 <Image Source="/dental (1).png" Width="20" Height="20" Margin="5"/>
-                <TextBlock Text="{Binding LoggedInUsername}" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Text="{Binding FirstName}" VerticalAlignment="Center" Margin="5"/>
             </StackPanel>
 
 
@@ -53,21 +53,23 @@
                     <Button Content="Feedbacks" Margin="5" Click="Feedbacks"/>
                     <Button Content="Patient Profile" Margin="5" Click="PatientProfile"/>
                 </StackPanel>
-                <DataGrid x:Name="DetailsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True">
-                    <DataGrid.Style>
-                        <Style TargetType="DataGrid">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="0">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="1">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.Style>
-                </DataGrid>
+                <!--
+<DataGrid x:Name="DetailsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True">
+    <DataGrid.Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="0">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="1">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </DataGrid.Style>
+</DataGrid>
+-->
 
 
             </Grid>

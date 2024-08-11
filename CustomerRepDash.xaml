@@ -12,5 +12,36 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="DIGIDENT" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10">
+            <Image Source="/dental (1).png" Width="20" Height="20" Margin="5"/>
+            <TextBlock Text="{Binding LoggedInUsername}" VerticalAlignment="Center" Margin="5"/>
+        </StackPanel>
+        <TextBlock Text="Welcome to DigiDent" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="10"/>
+        <Grid Grid.Row="3" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+                <Button Content="Book Appointments" Margin="5" Click="Appointments"/>
+                <Button Content="Appointments" Margin="5" Click="Appointments"/>
+                <Button Content="schedule" Margin="5" Click="Reports"/>
+                <Button Content="Payment" Margin="5" Click="ManagerProfile"/>
+                <Button Content="Insurance" Margin="5" Click="ManagerProfile"/>
+                <Button Content="Profile" Margin="5" Click="ManagerProfile"/>
+            </StackPanel>
+            <DataGrid x:Name="AppointmentsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True"/>
+        </Grid>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Logout" Width="100" Margin="5" Click="Button_Click_2"/>
+        </StackPanel>
     </Grid>
 </Page>

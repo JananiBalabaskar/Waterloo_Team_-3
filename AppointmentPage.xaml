@@ -12,31 +12,31 @@
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
-        
-      <!--  <ListView Name="AppointmentsListView" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="300">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding AppointmentID}" Width="50"/>
-                    <GridViewColumn Header="Patient Name" DisplayMemberBinding="{Binding PatientName}" Width="150"/>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding AppointmentDate}" Width="100"/>
-                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding AppointmentTime}" Width="100"/>
-                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding AppointmentType}" Width="150"/>
-                </GridView>
-            </ListView.View>
-        </ListView> -->
-         <!-- DataGrid to display appointments -->
+
+        <!-- DataGrid to display appointments -->
         <DataGrid x:Name="AppointmentsDataGrid"
-                  AutoGenerateColumns="False"
-                  Margin="10,10,10,80"
-                  SelectionMode="Single"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False">
+          AutoGenerateColumns="False"
+          Margin="34,101,65,64"
+          SelectionMode="Single"
+          CanUserAddRows="False"
+          CanUserDeleteRows="False"
+          IsReadOnly="True">
+            <!-- Ensure the DataGrid is non-editable -->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Appointment ID" Binding="{Binding AppointmentId}" />
-                <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}" />
-                <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
-                <DataGridTextColumn Header="Details" Binding="{Binding Details}" />
+                <!-- Appointment ID column, if you want to display it -->
+                <DataGridTextColumn Header="Appointment ID" Binding="{Binding AppointmentID}" Width="100" Visibility="Collapsed"/>
+
+                <!-- Patient Name column -->
+                <DataGridTextColumn Header="Patient Name" Binding="{Binding PatientName}" Width="150"/>
+
+                <!-- Date column with custom formatting to hide time -->
+                <DataGridTextColumn Header="Date" Binding="{Binding AppointmentDate, StringFormat=\{0:MM/dd/yyyy\}}" Width="150"/>
+
+                <!-- Time column -->
+                <DataGridTextColumn Header="Time" Binding="{Binding AppointmentTime}" Width="100"/>
+
+                <!-- Type column -->
+                <DataGridTextColumn Header="Type" Binding="{Binding AppointmentType}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -45,5 +45,13 @@
             <Button x:Name="UpdateButton" Content="Update" Width="100" Margin="5" Click="UpdateButton_Click" />
             <Button x:Name="DeleteButton" Content="Delete" Width="100" Margin="5" Click="DeleteButton_Click" />
         </StackPanel>
+        <Button Content="Back" HorizontalAlignment="Left" Height="22" Margin="38,18,0,0"  VerticalAlignment="Top" Width="94" Click="Backbutton" BorderBrush="#FF8ADAED" Foreground="White"  Padding="2,2,2,2" FontSize="10">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8ADAED"/>
+                    <GradientStop Color="#FF1A73BD" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

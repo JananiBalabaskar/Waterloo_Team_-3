@@ -24,5 +24,29 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
+
+        private void Appointments(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Reports(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManagerProfile(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DoctorLoginPage());
+            }
+        }
     }
 }

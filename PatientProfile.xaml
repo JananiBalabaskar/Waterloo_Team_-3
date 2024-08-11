@@ -8,9 +8,70 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PatientProfile">
 
-    <Grid>
+
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
         <Grid.Background>
             <ImageBrush ImageSource="/dental (6).png"/>
         </Grid.Background>
+
+        <!-- Patient Details Section -->
+        <GroupBox Header="Patient Details" Grid.Row="0" Margin="0,0,0,10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="First Name:" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox x:Name="txtFirstName" Grid.Column="1" Margin="5" Grid.Row="0"/>
+
+                <Label Content="Last Name:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="1"/>
+                <TextBox x:Name="txtLastName" Grid.Column="1" Margin="5" Grid.Row="1"/>
+
+                <Label Content="Phone Number:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="2"/>
+                <TextBox x:Name="txtPhoneNumber" Grid.Column="1" Margin="5" Grid.Row="2"/>
+
+                <Label Content="Address:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="3"/>
+                <TextBox x:Name="txtAddress" Grid.Column="1" Margin="5" Grid.Row="3"/>
+
+                <Label Content="Email:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="4"/>
+                <TextBox x:Name="txtEmail" Grid.Column="1" Margin="5" Grid.Row="4"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Appointment History Section -->
+        <GroupBox Header="Appointment History" Grid.Row="2" Margin="0,0,0,10">
+            <DataGrid x:Name="AppointmentsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date" Binding="{Binding AppointmentDate}" Width="*"/>
+                    <DataGridTextColumn Header="Time" Binding="{Binding AppointmentTime}" Width="*"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding AppointmentType}" Width="*"/>
+                    <DataGridTextColumn Header="Dentist" Binding="{Binding DentistName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <!-- Buttons Section -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3">
+            <Button Content="Save Changes" Width="100" Margin="5" Click="SaveChangesButton_Click"/>
+            <Button Content="Cancel" Width="100" Margin="5" Click="CancelButton_Click"/>
+            <Button Content="Back" Width="100" Margin="5" Click="BackButton_Click"/>
+        </StackPanel>
     </Grid>
+
 </Page>

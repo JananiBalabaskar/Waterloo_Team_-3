@@ -1,27 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.Data.SqlClient;
 using Digident_Group3.Interfaces;
 using Digident_Group3.Services;
-using Microsoft.Data.SqlClient;
-using System.Configuration;
+using Digident_Group3.Utils;
 
 namespace Digident_Group3
 {
-    /// <summary>
-    /// Interaction logic for PatientLoginPage.xaml
-    /// </summary>
     public partial class PatientLoginPage : Page
     {
         private readonly IDatabaseService _databaseService;
@@ -50,58 +39,71 @@ namespace Digident_Group3
 
         internal void Loginbutton(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text.Trim();
+            string email = UsernameTextBox.Text.Trim();
             string password = PasswordBox.Password.Trim();
 
-            Console.WriteLine($"Username: '{username}', Password: '{password}'");
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                _messageBoxService.Show("Please enter both username and password.", "Error", MessageBoxButton.OK);
+                _messageBoxService.Show("Please enter both email and password.", "Error", MessageBoxButton.OK);
                 return;
             }
 
-            if (_databaseService.ValidateCredentials(username, password))
+            // Hash the entered password before comparison
+            string hashedPassword = HashPassword(password);
+
+            var userData = GetUserData(email, hashedPassword);
+            if (userData.HasValue)
             {
+                var (userId, userEmail) = userData.Value;
+                UserSession.UserID = userId;
+                UserSession.UserEmail = userEmail;
+                UserSession.CurrentUsername = email; // Use email as the username
+
                 _messageBoxService.Show("Login successful!", "Success", MessageBoxButton.OK);
 
                 MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
                 if (mainWindow != null)
                 {
-                    mainWindow.ChangePage(new PatientDashboard());
+                    PatientDashboard dashboard = new PatientDashboard();
+                    mainWindow.ChangePage(dashboard);
                 }
             }
             else
             {
-                _messageBoxService.Show("Invalid username or password.", "Error", MessageBoxButton.OK);
+                _messageBoxService.Show("Invalid email or password.", "Error", MessageBoxButton.OK);
             }
         }
 
-        private bool ValidateCredentials(string email, string password)
+        private (int UserID, string Email)? GetUserData(string email, string hashedPassword)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email AND Password = @Password";
+                    string query = "SELECT UserID, Email FROM Users WHERE Email = @Email AND PasswordHash = @PasswordHash";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@PasswordHash", hashedPassword);
 
-                        Console.WriteLine($"Executing SQL query: {command.CommandText}");
-
-                        int count = (int)command.ExecuteScalar();
-                        return count > 0;
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int userID = reader.GetInt32(reader.GetOrdinal("UserID"));
+                                string userEmail = reader.GetString(reader.GetOrdinal("Email"));
+                                return (userID, userEmail);
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                    return false;
+                    _messageBoxService.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK);
                 }
             }
+            return null;
         }
 
         private void RegisterHyperlink_Click(object sender, RoutedEventArgs e)
@@ -110,6 +112,20 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 mainWindow.ChangePage(new Register());
+            }
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
             }
         }
     }
