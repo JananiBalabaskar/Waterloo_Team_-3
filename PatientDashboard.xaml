@@ -10,75 +10,99 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/background_1.jpg"/>
+            <ImageBrush ImageSource="/patient.jpg"/>
         </Grid.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-              
                 <RowDefinition Height="Auto"/>
-                
                 <RowDefinition Height="Auto"/>
-              
                 <RowDefinition Height="*"/>
-             
                 <RowDefinition Height="Auto"/>
-                
             </Grid.RowDefinitions>
 
-            
-            <TextBlock Text="DIGIDENT" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10"/>
-
+            <!-- Changed TextBlock text color to White -->
+            <TextBlock Text="DIGIDENT" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" Foreground="White"/>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="10">
                 <Image Source="/dental (1).png" Width="20" Height="20" Margin="5"/>
-                <TextBlock Text="{Binding FirstName}" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Text="{Binding FirstName}" VerticalAlignment="Center" Margin="5" Foreground="White"/>
             </StackPanel>
 
+            <!-- Changed TextBlock text color to White -->
+            <TextBlock Text="Welcome to DigiDent" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="10" Foreground="White"/>
 
-            <TextBlock Text="Welcome to DigiDent" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="10"/>
-
-            
             <Grid Grid.Row="3" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                
                 <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
-                    <Button Content="Book Appointments" Margin="5" Click="BookAppointments"/>
-                    <Button Content="Appointments" Margin="5" Click="Appointments"/>
-                    <Button Content="Reports" Margin="5" Click="Reports"/>
-                    <Button Content="Feedbacks" Margin="5" Click="Feedbacks"/>
-                    <Button Content="Patient Profile" Margin="5" Click="PatientProfile"/>
+                    <Button Content="Book Appointments" Margin="5" Click="BookAppointments">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                                <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>White</Button.Foreground>
+                    </Button>
+                    <Button Content="Appointments" Margin="5" Click="Appointments">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                                <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>White</Button.Foreground>
+                    </Button>
+                    <Button Content="Reports" Margin="5" Click="Reports">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                                <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>White</Button.Foreground>
+                    </Button>
+                    <Button Content="Feedbacks" Margin="5" Click="Feedbacks">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                                <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>White</Button.Foreground>
+                    </Button>
+                    <Button Content="Patient Profile" Margin="5" Click="PatientProfile">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="White"/>
+                                <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                                <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <Button.Foreground>White</Button.Foreground>
+                    </Button>
                 </StackPanel>
-                <!--
-<DataGrid x:Name="DetailsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True">
-    <DataGrid.Style>
-        <Style TargetType="DataGrid">
-            <Setter Property="Visibility" Value="Collapsed"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="0">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Items.Count, ElementName=DetailsDataGrid}" Value="1">
-                    <Setter Property="Visibility" Value="Visible"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </DataGrid.Style>
-</DataGrid>
--->
-
-
             </Grid>
 
-           
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Content="Logout" Width="100" Margin="5" Click="Button_Click_2"/>
-                
-            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10"/>
+            <Button Content="Logout" Click="Button_Click_2" Margin="670,11,30,21">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White"/>
+                        <GradientStop Color="#FFF3ACAC" Offset="1"/>
+                        <GradientStop Color="#FFD36A6A" Offset="0.002"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Foreground>White</Button.Foreground>
+            </Button>
         </Grid>
     </Grid>
 

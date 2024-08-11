@@ -24,7 +24,10 @@
     <None Remove="dental %287%29.png" />
     <None Remove="dental %288%29.png" />
     <None Remove="dental %289%29.png" />
+    <None Remove="dentist-background.jpg" />
+    <None Remove="dentistry.jpg" />
     <None Remove="Doctor %281%29.png" />
+    <None Remove="patient.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,7 +51,10 @@
     <Resource Include="dental (7).png" />
     <Resource Include="dental (8).png" />
     <Resource Include="dental (9).png" />
+    <Resource Include="dentist-background.jpg" />
+    <Resource Include="dentistry.jpg" />
     <Resource Include="Doctor (1).png" />
+    <Resource Include="patient.jpg" />
   </ItemGroup>
 
 </Project>

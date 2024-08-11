@@ -77,31 +77,31 @@ namespace Digident_Group3
                     conn.Open();
                     string query = "";
 
-                   
+                    // Determine which table to query based on the role
                     switch (selectedRole)
                     {
-                            case "Manager":
-                                    query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN Managers M ON U.UserID = M.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
-                            break;
-                            case "Dentist":
+                        case "Manager":
                             query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN Dentists D ON U.UserID = D.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN Managers M ON U.UserID = M.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
                             break;
-                            case "Customer representatives":
+                        case "Dentist":
                             query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN CustomerRepresentatives CR ON U.UserID = CR.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN Dentists D ON U.UserID = D.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
                             break;
-                            default:
+                        case "Customer representatives":
+                            query = @"
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN CustomerRepresentatives CR ON U.UserID = CR.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                            break;
+                        default:
                             MessageBox.Show("Invalid role specified.");
                             return false;
                     }
@@ -117,7 +117,7 @@ namespace Digident_Group3
 
                         if (result != null)
                         {
-                            selectedRole = result.ToString();
+                            UserSession.UserID = Convert.ToInt32(result); // Set the UserID in UserSession
                             return true;
                         }
                         return false;
