@@ -25,7 +25,7 @@ namespace Digident_Group3
         private readonly IDatabaseService _databaseService;
         private readonly IMessageBoxService _messageBoxService;
 
-        // Constructor that accepts IDatabaseService
+    
         public Register(IDatabaseService databaseService, IMessageBoxService messageBoxService)
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace Digident_Group3
             _messageBoxService = messageBoxService;
         }
 
-        // Default constructor for scenarios where no service is injected
+       
         public Register()
             : this(new DatabaseService(ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString), new MessageBoxService())
         {

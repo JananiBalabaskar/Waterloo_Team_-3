@@ -98,21 +98,7 @@ namespace Digident_Group3
             }
         }
 
-       /* private void ViewFileButton_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            string filePath = button?.Tag.ToString();
-
-            if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
-            {
-                System.Diagnostics.Process.Start(filePath);
-            }
-            else
-            {
-                MessageBox.Show("File not found.");
-            }
-        }
-*/
+       
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = Window.GetWindow(this) as MainWindow;

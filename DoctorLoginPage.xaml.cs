@@ -22,7 +22,7 @@ namespace Digident_Group3
     /// </summary>
     public partial class DoctorLoginPage : Page
     {
-        // Correctly placed connectionString field at the class level
+   
         private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
 
         public DoctorLoginPage()
@@ -63,7 +63,7 @@ namespace Digident_Group3
             }
             else
             {
-                // Handle the case where no role is selected
+                
                 MessageBox.Show("Please select a role.");
             }
         }
@@ -77,7 +77,7 @@ namespace Digident_Group3
                     conn.Open();
                     string query = "";
 
-                    // Determine which table to query based on the role
+                   
                     switch (selectedRole)
                     {
                             case "Manager":
@@ -135,7 +135,7 @@ namespace Digident_Group3
         {
             Page dashboardPage = null;
 
-            // Determine which page to navigate to based on role
+          
             switch (role)
             {
                 case "Manager":
@@ -155,7 +155,7 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                // Use the main window's ChangePage method to navigate to the selected dashboard page
+             
                 mainWindow.ChangePage(dashboardPage);
             }
             else
@@ -166,7 +166,7 @@ namespace Digident_Group3
 
         private void JobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Get the selected ComboBoxItem
+           
             ComboBoxItem selectedItem = jobComboBox.SelectedItem as ComboBoxItem;
 
             if (selectedItem != null)
