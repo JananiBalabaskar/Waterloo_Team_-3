@@ -21,7 +21,7 @@ namespace Digident_Group3
     /// </summary>
     public partial class Feedbacks : Page
     {
-        private const string connectionString = @"Data Source=YOUR_SERVER;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
+        private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
         private List<Feedback> feedbackHistory;
 
         public Feedbacks()

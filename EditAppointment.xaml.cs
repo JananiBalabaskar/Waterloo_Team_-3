@@ -42,23 +42,23 @@ namespace Digident_Group3
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            // Update the _appointment object with the new values from the UI
+            
             _appointment.PatientName = txtPatientName.Text;
             _appointment.AppointmentDate = dpAppointmentDate.SelectedDate ?? DateTime.Now;
             _appointment.AppointmentTime = ((ComboBoxItem)cmbAppointmentTime.SelectedItem).Content.ToString();
             _appointment.AppointmentType = ((ComboBoxItem)cmbAppointmentType.SelectedItem).Content.ToString();
 
-            // Check if the selected date and time are available
+            
             if (!IsAppointmentTimeAvailable(_appointment.AppointmentDate, _appointment.AppointmentTime, _appointment.AppointmentID))
             {
                 MessageBox.Show("The selected date and time are already booked. Please choose another time.");
                 return;
             }
 
-            // Update the appointment in the database
+            
             UpdateAppointmentInDatabase(_appointment);
 
-            // Close the window after saving
+          
             this.Close();
         }
 
@@ -74,7 +74,7 @@ namespace Digident_Group3
                     FROM Appointments
                     WHERE AppointmentDate = @AppointmentDate
                     AND AppointmentTime = @AppointmentTime
-                    AND AppointmentID != @AppointmentID"; // Exclude the current appointment
+                    AND AppointmentID != @AppointmentID"; 
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@AppointmentDate", date);

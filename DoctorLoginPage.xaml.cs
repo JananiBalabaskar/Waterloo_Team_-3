@@ -22,7 +22,7 @@ namespace Digident_Group3
     /// </summary>
     public partial class DoctorLoginPage : Page
     {
-        // Correctly placed connectionString field at the class level
+   
         private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
 
         public DoctorLoginPage()
@@ -63,7 +63,7 @@ namespace Digident_Group3
             }
             else
             {
-                // Handle the case where no role is selected
+                
                 MessageBox.Show("Please select a role.");
             }
         }
@@ -80,28 +80,28 @@ namespace Digident_Group3
                     // Determine which table to query based on the role
                     switch (selectedRole)
                     {
-                            case "Manager":
-                                    query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN Managers M ON U.UserID = M.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
-                            break;
-                            case "Dentist":
+                        case "Manager":
                             query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN Dentists D ON U.UserID = D.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN Managers M ON U.UserID = M.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
                             break;
-                            case "Customer representatives":
+                        case "Dentist":
                             query = @"
-                                    SELECT U.UserID 
-                                    FROM Users U
-                                    INNER JOIN CustomerRepresentatives CR ON U.UserID = CR.UserID
-                                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN Dentists D ON U.UserID = D.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
                             break;
-                            default:
+                        case "Customer representatives":
+                            query = @"
+                    SELECT U.UserID 
+                    FROM Users U
+                    INNER JOIN CustomerRepresentatives CR ON U.UserID = CR.UserID
+                    WHERE U.Email = @Email AND U.PasswordHash = @PasswordHash";
+                            break;
+                        default:
                             MessageBox.Show("Invalid role specified.");
                             return false;
                     }
@@ -117,7 +117,7 @@ namespace Digident_Group3
 
                         if (result != null)
                         {
-                            selectedRole = result.ToString();
+                            UserSession.UserID = Convert.ToInt32(result); // Set the UserID in UserSession
                             return true;
                         }
                         return false;
@@ -135,7 +135,7 @@ namespace Digident_Group3
         {
             Page dashboardPage = null;
 
-            // Determine which page to navigate to based on role
+          
             switch (role)
             {
                 case "Manager":
@@ -155,7 +155,7 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                // Use the main window's ChangePage method to navigate to the selected dashboard page
+             
                 mainWindow.ChangePage(dashboardPage);
             }
             else
@@ -166,7 +166,7 @@ namespace Digident_Group3
 
         private void JobComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Get the selected ComboBoxItem
+           
             ComboBoxItem selectedItem = jobComboBox.SelectedItem as ComboBoxItem;
 
             if (selectedItem != null)

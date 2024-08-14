@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\App.xaml
-20-155465806
+24-183870552
 
-321579559241
+36-1301970157
 2291743565039
-Aboutus.xaml;Admin.xaml;Appointment.xaml;AppointmentPage.xaml;Appointments.xaml;Book Appointment.xaml;Contactus.xaml;CustomerRepDash.xaml;DentistDashboard.xaml;DoctorLoginPage.xaml;EditAppointment.xaml;Feedbacks.xaml;Login.xaml;MainWindow.xaml;ManagerDash.xaml;PatientDashboard.xaml;PatientLoginPage.xaml;PatientProfile.xaml;Register.xaml;Reports.xaml;
+Aboutus.xaml;Admin.xaml;AppointmentPage.xaml;Appointments.xaml;Book Appointment.xaml;Contactus.xaml;CustomerRepAppointmentPage.xaml;CustomerRepDash.xaml;CustomerRepProfile.xaml;DentistDashboard.xaml;DoctorLoginPage.xaml;EditAppointment.xaml;Feedbacks.xaml;Login.xaml;MainWindow.xaml;ManagerAppointmentPage.xaml;ManagerDash.xaml;ManagerProfile.xaml;ManagerReports.xaml;PatientDashboard.xaml;PatientLoginPage.xaml;PatientProfile.xaml;Register.xaml;Reports.xaml;
 
 False
 

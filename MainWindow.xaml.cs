@@ -24,13 +24,13 @@ namespace Digident_Group3
         public MainWindow()
         {
             InitializeComponent();
-            // Retrieve the connection string from App.config
+           
             string connectionString = GetConnectionString("MyDbConnectionString");
 
 
             _databaseService = new DatabaseService(connectionString);
             _messageBoxService = new MessageBoxService();
-            //ShowLoginPage();
+           
 
         }
         private string GetConnectionString(string name)

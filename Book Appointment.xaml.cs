@@ -22,7 +22,7 @@ namespace Digident_Group3
     public partial class Book_Appointment : Page
     {
         private const string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
-        private int _userID; // Store the UserID passed to this page
+        private int _userID;
 
         public Book_Appointment(int userID)
         {
@@ -63,7 +63,7 @@ namespace Digident_Group3
                 txtAddress.Visibility = Visibility.Visible;
                 AddressError.Visibility = Visibility.Visible;
 
-                // Clear the fields to allow new input
+                
                 txtPatientName.Clear();
                 txtPhoneNumber.Clear();
                 txtAddress.Clear();
@@ -401,18 +401,6 @@ namespace Digident_Group3
                 mainWindow.ChangePage(new PatientDashboard());
             }
         }
-
-        /*private void cmbAppointmentTime_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = sender as ComboBox;
-            if (comboBox != null && comboBox.SelectedItem != null)
-            {
-                ComboBoxItem selectedItem = comboBox.SelectedItem as ComboBoxItem;
-                string selectedTime = selectedItem.Content.ToString();
-                // Implement your logic based on selectedTime
-                MessageBox.Show($"Selected time: {selectedTime}");
-            }
-        }*/
     }
 
     public partial class Appointment
