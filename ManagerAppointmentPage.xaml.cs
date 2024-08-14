@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for fAQ.xaml
+    /// Interaction logic for ManagerAppointmentPage.xaml
     /// </summary>
-    public partial class fAQ : Page
+    public partial class ManagerAppointmentPage : Page
     {
-        public fAQ()
+        public ManagerAppointmentPage(int userID)
         {
             InitializeComponent();
         }

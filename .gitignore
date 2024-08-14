@@ -4,6 +4,4 @@ bin/
 Digident_Group3.sln
 .vs/
 obj/
-obj/Debug/net8.0-windows/Digident_Group3.AssemblyInfo.cs
-obj/Debug/net8.0-windows/Digident_Group3.AssemblyInfoInputs.cache
-obj/Debug/net8.0-windows/Digident_Group3_MarkupCompile.i.cache
+

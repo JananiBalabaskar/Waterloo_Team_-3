@@ -34,10 +34,10 @@ namespace Digident_Group3
         {
             InitializeComponent();
 
-            // Create an instance of DatabaseService
+           
             string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MyDbConnectionString"].ConnectionString;
-            // Create an instance of DatabaseService with the connection string
-            _databaseService = databaseService; // No need to pass the connection string
+            
+            _databaseService = databaseService; 
             _messageBoxService = messageBoxService;
         }
         public Login()

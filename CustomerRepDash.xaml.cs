@@ -20,41 +20,44 @@ using System.Data;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for DentistDashboard.xaml
+    /// Interaction logic for CustomerRepDash.xaml
     /// </summary>
-    public partial class DentistDashboard : Page
+    public partial class CustomerRepDash : Page
     {
         string connectionString = @"Data Source=JANANIDESK\MSSQLSERVER05;Initial Catalog=Digidentdb;Integrated Security=True;TrustServerCertificate=True";
-        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        public DentistDashboard()
+        public CustomerRepDash()
         {
             InitializeComponent();
-            LoadDentistData();
+            LoadCustomerRepData();
             DataContext = this;
         }
 
-        private void LoadDentistData()
+        private void LoadCustomerRepData()
         {
             int userId = UserSession.UserID;
+            MessageBox.Show($"UserID: {userId}"); // Debugging: Check if UserID is correct
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string query = "SELECT FirstName FROM Users WHERE UserID = @UserID";
+                    string query = "SELECT LastName FROM Users WHERE UserID = @UserID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@UserID", userId);
                         var result = command.ExecuteScalar();
                         if (result != null)
                         {
-                            FirstName = result.ToString();
+                            LastName = result.ToString();
+                            
                         }
                         else
                         {
-                            FirstName = "Unknown";
+                            
+                            LastName = "Unknown";
                         }
                     }
                 }
@@ -65,29 +68,35 @@ namespace Digident_Group3
             }
         }
 
-        private void BookAppointments(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Book Appointments page
-        }
-
         private void Appointments(object sender, RoutedEventArgs e)
         {
-            // Navigate to Appointments page
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                // Navigate to AppointmentPage for customer representatives
+                var appointmentPage = new CustomerRepAppointmentPage(UserSession.UserID);
+                mainWindow.ChangePage(appointmentPage);
+            }
         }
 
         private void Reports(object sender, RoutedEventArgs e)
         {
-            // Navigate to Reports page
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                // Navigate to Reports page
+                mainWindow.ChangePage(new ManagerReports(UserSession.UserID));
+            }
         }
 
-        private void PatientProfile(object sender, RoutedEventArgs e)
+        private void ManagerProfile(object sender, RoutedEventArgs e)
         {
-            // Navigate to Patient Profile page
-        }
-
-        private void Feedbacks(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Feedbacks page
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                // Navigate to CustomerRepProfile page
+                mainWindow.ChangePage(new CustomerRepProfile(UserSession.UserID));
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -96,6 +105,7 @@ namespace Digident_Group3
             UserSession.UserEmail = string.Empty;
             UserSession.CurrentUsername = string.Empty;
 
+            // Navigate back to the login page
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
