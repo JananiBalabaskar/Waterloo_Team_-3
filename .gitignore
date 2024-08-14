@@ -4,5 +4,4 @@ bin/
 Digident_Group3.sln
 .vs/
 obj/
-*.cache
-*.cs
+
