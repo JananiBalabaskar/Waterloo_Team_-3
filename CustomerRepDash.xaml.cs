@@ -37,7 +37,7 @@ namespace Digident_Group3
         private void LoadCustomerRepData()
         {
             int userId = UserSession.UserID;
-            MessageBox.Show($"UserID: {userId}"); // Debugging: Check if UserID is correct
+        
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
