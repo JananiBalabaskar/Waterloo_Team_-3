@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for ManagerReports.xaml
+    /// Interaction logic for FAQ.xaml
     /// </summary>
-    public partial class ManagerReports : Page
+    public partial class FAQ : Page
     {
-        public ManagerReports(int userID)
+        public FAQ()
         {
             InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window1 = new MainWindow();
+            window1.Show();
+            Window.GetWindow(this)?.Close();
         }
     }
 }

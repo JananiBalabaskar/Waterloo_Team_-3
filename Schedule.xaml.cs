@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for Schedule.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class Schedule : Page
     {
-        public CustomerRepProfile(int userID)
+        public Schedule()
         {
             InitializeComponent();
         }
@@ -34,12 +34,17 @@ namespace Digident_Group3
             }
         }
 
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FeedbackDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

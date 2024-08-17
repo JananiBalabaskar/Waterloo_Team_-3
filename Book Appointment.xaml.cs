@@ -2,20 +2,9 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-
 
 namespace Digident_Group3
 {
@@ -29,7 +18,38 @@ namespace Digident_Group3
             InitializeComponent();
             _userID = userID;
 
+            LoadDentists();
             RadioButton_Checked(null, null);
+        }
+
+        private void LoadDentists()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT FirstName, LastName FROM Users";
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ComboBoxItem item = new ComboBoxItem
+                        {
+                            Content = $"{reader["FirstName"]} {reader["LastName"]}",
+                            Tag = reader["DentistID"]
+                        };
+                        cmbDentist.Items.Add(item);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading dentists: {ex.Message}");
+                }
+            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -63,7 +83,6 @@ namespace Digident_Group3
                 txtAddress.Visibility = Visibility.Visible;
                 AddressError.Visibility = Visibility.Visible;
 
-                
                 txtPatientName.Clear();
                 txtPhoneNumber.Clear();
                 txtAddress.Clear();
@@ -328,6 +347,28 @@ namespace Digident_Group3
             return isAvailable;
         }
 
+        private int GetRandomDentistID()
+        {
+            int randomDentistID = -1;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT TOP 1 DentistID FROM Dentists ORDER BY NEWID()"; // SQL Server specific syntax
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    randomDentistID = (int)command.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error fetching random dentist: {ex.Message}");
+                }
+            }
+
+            return randomDentistID;
+        }
+
         private void Bookbutton(object sender, RoutedEventArgs e)
         {
             bool isBookingForSelf = rbSelf.IsChecked == true;
@@ -339,6 +380,41 @@ namespace Digident_Group3
                     MessageBox.Show("The selected date and time are already booked. Please choose another time.");
                     return;
                 }
+                int selectedDentistID;
+
+                if (cmbDentist.Text == "Random")
+                {
+                    selectedDentistID = GetRandomDentistID();
+                }
+                else
+                {
+                    if (cmbDentist.SelectedItem != null)
+                    {
+                        ComboBoxItem selectedItem = cmbDentist.SelectedItem as ComboBoxItem;
+                        if (selectedItem != null && selectedItem.Tag != null)
+                        {
+                            // Retrieve DentistID from the database using the selected dentist's details
+                            string licenseNumber = selectedItem.Tag.ToString(); // Assuming Tag stores the LicenseNumber or some unique identifier
+                            selectedDentistID = GetDentistIDFromDatabase(licenseNumber);
+
+                            if (selectedDentistID == 0)
+                            {
+                                MessageBox.Show("Unable to retrieve DentistID from the database.");
+                                return; // Exit if DentistID retrieval fails
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select a valid dentist.");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a dentist.");
+                        return;
+                    }
+                }
 
                 Appointment appointment = new Appointment
                 {
@@ -349,7 +425,8 @@ namespace Digident_Group3
                     AppointmentType = cmbAppointmentType.Text,
                     AppointmentDate = dpAppointmentDate.SelectedDate.Value,
                     AppointmentTime = cmbAppointmentTime.Text,
-                    PatientInfo = txtPatientinfo.Text
+                    PatientInfo = txtPatientinfo.Text,
+                    DentistID = selectedDentistID
                 };
 
                 try
@@ -368,6 +445,7 @@ namespace Digident_Group3
                             command.Parameters.AddWithValue("@AppointmentDate", appointment.AppointmentDate);
                             command.Parameters.AddWithValue("@AppointmentTime", appointment.AppointmentTime);
                             command.Parameters.AddWithValue("@PatientAllergy", appointment.PatientInfo);
+                            command.Parameters.AddWithValue("@DentistID", appointment.DentistID);
 
                             command.ExecuteNonQuery();
                         }
@@ -401,6 +479,36 @@ namespace Digident_Group3
                 mainWindow.ChangePage(new PatientDashboard());
             }
         }
+
+        // Move this method outside the Bookbutton method
+        private int GetDentistIDFromDatabase(string licenseNumber)
+        {
+            int dentistID = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT DentistID FROM Dentists WHERE LicenseNumber = @LicenseNumber";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@LicenseNumber", licenseNumber);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        dentistID = Convert.ToInt32(result);
+                        MessageBox.Show("Fetching DentistID" + dentistID);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error retrieving DentistID: {ex.Message}");
+                }
+            }
+
+            return dentistID;
+        }
     }
 
     public partial class Appointment
@@ -413,5 +521,6 @@ namespace Digident_Group3
         public DateTime AppointmentDate { get; set; }
         public string AppointmentTime { get; set; } = "";
         public string PatientInfo { get; set; } = "";
+        public int DentistID { get; set; } 
     }
 }

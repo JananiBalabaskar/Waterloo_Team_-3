@@ -57,4 +57,8 @@
     <Resource Include="patient.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+
 </Project>

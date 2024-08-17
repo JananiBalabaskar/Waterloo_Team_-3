@@ -20,9 +20,28 @@ namespace Digident_Group3
     /// </summary>
     public partial class ManagerAppointmentPage : Page
     {
-        public ManagerAppointmentPage(int userID)
+        public ManagerAppointmentPage()
         {
             InitializeComponent();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new ManagerDash());
+            }
         }
     }
 }

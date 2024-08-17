@@ -9,6 +9,45 @@
       Title="ManagerProfile">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/dentistry.jpg"/>
+        </Grid.Background>
+
+        <!-- Back to Home Button -->
+        <Button Content="Home" HorizontalAlignment="Left" Height="22" Margin="25,10,0,0" VerticalAlignment="Top" Width="94" Click="Homebutton" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2" FontSize="10">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8ADAED"/>
+                    <GradientStop Color="#FF1A73BD" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!-- Update Email Button -->
+        <Button Content="Update Email" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Height="60" Width="200" Click="UpdateEmail_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8ADAED"/>
+                    <GradientStop Color="#FF1A73BD" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!-- Change Password Button -->
+        <Button Content="Change Password" HorizontalAlignment="Left" Margin="50,180,0,0" VerticalAlignment="Top" Height="60" Width="200" Click="ChangePassword_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8ADAED"/>
+                    <GradientStop Color="#FF1A73BD" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!-- Update Profile Picture Button -->
+
+        <!-- Save Changes Button -->
+
+        <!-- Cancel Button -->
+
     </Grid>
 </Page>

@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for ChangePassword.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class ChangePassword : Page
     {
-        public CustomerRepProfile(int userID)
+        public ChangePassword()
         {
             InitializeComponent();
+        }
+
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -30,18 +40,8 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.ChangePage(new CustomerRepDash());
+                mainWindow.ChangePage(new ManagerDash());
             }
-        }
-
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

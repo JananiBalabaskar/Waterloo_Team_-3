@@ -85,7 +85,7 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 // Navigate to Reports page
-                mainWindow.ChangePage(new ManagerReports(UserSession.UserID));
+                mainWindow.ChangePage(new ReportsManager());
             }
         }
 
@@ -110,6 +110,42 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 mainWindow.ChangePage(new DoctorLoginPage());
+            }
+        }
+
+        private void bookAppointments(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new bookAppointment());
+            }
+        }
+
+        private void Insurance(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new Insurance());
+            }
+        }
+
+        private void Payment(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new Payment());
+            }
+        }
+
+        private void schedule(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new Schedule());
             }
         }
     }

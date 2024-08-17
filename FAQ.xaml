@@ -1,0 +1,55 @@
+﻿<Page x:Class="Digident_Group3.FAQ"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Digident_Group3"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FAQ">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/dental (6).png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="47,38,106,51">
+            <StackPanel Margin="20">
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Frequently Asked Questions" Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q1: How can I book an appointment online?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A1: You can easily book an appointment through our online portal. Simply log in to your account, go to the 'Appointments' section, select your preferred dentist and time slot, and confirm your booking." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q2: What should I do if I need to reschedule my appointment?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A2: If you need to reschedule your appointment, log in to your account, go to the 'Appointments' section, find your upcoming appointment, and click 'Reschedule.' You'll be able to choose a new time that works for you." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q3: What dental services are available through the online portal?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A3: Our online portal allows you to access a wide range of dental services, including general check-ups, cleanings, fillings, crowns, and more. You can also consult with a specialist for more specific dental concerns." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q4: Can I view my dental history and treatment records online?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A4: Yes, once logged in, you can access your dental history and treatment records under the 'My Records' section. This includes details of past visits, treatments received, and any prescriptions provided." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q5: How do I update my personal information or contact details?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A5: To update your personal information or contact details, go to the 'My Profile' section after logging in. You can make changes to your address, phone number, email, and other details from there." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q6: What should I do if I forget my password?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A6: If you forget your password, click on the 'Forgot Password?' link on the login page. You'll be prompted to enter your registered email address, and we'll send you instructions to reset your password." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q7: How secure is my information on the online portal?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A7: Your information is highly secure on our online portal. We use advanced encryption methods and secure login procedures to ensure your data is protected at all times." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q8: Can I receive reminders for my upcoming appointments?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A8: Yes, you can opt-in to receive email or SMS reminders for your upcoming appointments. You can set this up in the 'Notifications' section of your profile." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q9: Is it possible to get a virtual consultation with a dentist?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A9: Yes, we offer virtual consultations for certain types of dental issues. You can schedule a virtual consultation through the 'Appointments' section by selecting the 'Virtual Consultation' option." Margin="0,0,0,20"/>
+
+                <TextBlock FontSize="18" FontWeight="Bold" Text="Q10: How can I contact customer support if I have an issue?" Margin="0,0,0,10"/>
+                <TextBlock FontSize="16" Text="A10: If you have any issues or need assistance, you can contact our customer support team through the 'Contact Us' page on the portal. We're available to help you with any concerns or questions you may have." Margin="0,0,0,20"/>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button Content="Back" Style="{StaticResource ButtonStyle}" Click="BackButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="647,0,0,0" Height="23" Width="143"/>
+    </Grid>
+</Page>

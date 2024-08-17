@@ -57,9 +57,20 @@
                 <TextBlock x:Name="AddressError" Foreground="Red" Visibility="Collapsed"/>
             </StackPanel>
 
+            <!-- Dentist Selection -->
+            <Label Content="Choose Dentist" Grid.Row="2" Margin="0,0,0,0"/>
+            <ComboBox x:Name="cmbDentist" Grid.Row="3" Margin="0 0 0 5">
+                <ComboBoxItem Content="Random"/>
+                <!-- Add dentist options here, e.g., -->
+                <ComboBoxItem Content="Dr. Alice Smith"/>
+                <ComboBoxItem Content="Dr. Jane Doe"/>
+                <!-- Add more dentists as needed -->
+            </ComboBox>
+            <TextBlock x:Name="DentistError" Grid.Row="4" Foreground="Red" Visibility="Collapsed"/>
+
             <!-- Appointment Type -->
-            <Label Content="Appointment Type" Grid.Row="2" Margin="0,0,0,0"/>
-            <ComboBox x:Name="cmbAppointmentType" Grid.Row="3" Margin="0 0 0 5">
+            <Label Content="Appointment Type" Grid.Row="5" Margin="0,0,0,0"/>
+            <ComboBox x:Name="cmbAppointmentType" Grid.Row="6" Margin="0 0 0 5">
                 <ComboBoxItem Content="Checkup"/>
                 <ComboBoxItem Content="Cleaning"/>
                 <ComboBoxItem Content="Filling/Crown"/>
@@ -67,16 +78,16 @@
                 <ComboBoxItem Content="Emergency Dental Care"/>
                 <ComboBoxItem Content="Cosmetic Dentistry"/>
             </ComboBox>
-            <TextBlock x:Name="AppointmentError" Grid.Row="4" Foreground="Red" Visibility="Collapsed"/>
+            <TextBlock x:Name="AppointmentError" Grid.Row="7" Foreground="Red" Visibility="Collapsed"/>
 
             <!-- Appointment Date -->
-            <Label Content="Appointment Date" Grid.Row="5" Margin="0,0,0,0"/>
-            <DatePicker x:Name="dpAppointmentDate" Grid.Row="6" Margin="0 0 0 5"/>
-            <TextBlock x:Name="AppointmentDateError" Grid.Row="7" Foreground="Red" Visibility="Collapsed"/>
+            <Label Content="Appointment Date" Grid.Row="8" Margin="0,0,0,0"/>
+            <DatePicker x:Name="dpAppointmentDate" Grid.Row="9" Margin="0 0 0 5"/>
+            <TextBlock x:Name="AppointmentDateError" Grid.Row="10" Foreground="Red" Visibility="Collapsed"/>
 
             <!-- Appointment Time -->
-            <Label Content="Appointment Time" Grid.Row="8" Margin="0,0,0,0"/>
-            <ComboBox x:Name="cmbAppointmentTime" Grid.Row="9" Margin="0 0 0 5">
+            <Label Content="Appointment Time" Grid.Row="11" Margin="0,0,0,0"/>
+            <ComboBox x:Name="cmbAppointmentTime" Grid.Row="12" Margin="0 0 0 5">
                 <ComboBoxItem Content="08:00 AM"/>
                 <ComboBoxItem Content="09:00 AM"/>
                 <ComboBoxItem Content="10:00 AM"/>
@@ -87,15 +98,15 @@
                 <ComboBoxItem Content="03:00 PM"/>
                 <ComboBoxItem Content="04:00 PM"/>
             </ComboBox>
-            <TextBlock x:Name="AppointmentTimeError" Grid.Row="10" Foreground="Red" Visibility="Collapsed"/>
+            <TextBlock x:Name="AppointmentTimeError" Grid.Row="13" Foreground="Red" Visibility="Collapsed"/>
 
             <!-- Patient Info -->
-            <Label Content="Patient Info" Grid.Row="11" Margin="0,0,0,0"/>
-            <TextBox x:Name="txtPatientinfo" Grid.Row="12" Margin="0 0 0 5"/>
-            <TextBlock x:Name="PatientError" Grid.Row="13" Foreground="Red" Visibility="Collapsed"/>
+            <Label Content="Patient Info" Grid.Row="14" Margin="0,0,0,0"/>
+            <TextBox x:Name="txtPatientinfo" Grid.Row="15" Margin="0 0 0 5"/>
+            <TextBlock x:Name="PatientError" Grid.Row="16" Foreground="Red" Visibility="Collapsed"/>
 
             <!-- Book Button -->
-            <Button Content="Book" Grid.Row="14" HorizontalAlignment="Left" Margin="191,43,0,-34" Click="Bookbutton" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2" FontSize="14">
+            <Button Content="Book" Grid.Row="17" HorizontalAlignment="Left" Margin="191,43,0,-34" Click="Bookbutton" BorderBrush="#FF8ADAED" Foreground="White" Padding="2,2,2,2" FontSize="14">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF8ADAED"/>

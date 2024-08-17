@@ -79,7 +79,8 @@ namespace Digident_Group3
 
         private void QuestionForm(object sender, RoutedEventArgs e)
         {
-
+            FAQ faqPage = new FAQ();
+            ChangePage(faqPage);
         }
 
         private void Loginbutton(object sender, RoutedEventArgs e)

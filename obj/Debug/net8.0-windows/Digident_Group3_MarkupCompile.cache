@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\JANANINARENDRAN\Documents\assignment sem2\Waterloo_Team_3\App.xaml
-24-183870552
+3711423595
 
-34-1695718988
+47788885049
 2291743565039
-Aboutus.xaml;Admin.xaml;AppointmentPage.xaml;Appointments.xaml;Book Appointment.xaml;Contactus.xaml;CustomerRepAppointmentPage.xaml;CustomerRepDash.xaml;CustomerRepProfile.xaml;DentistDashboard.xaml;DoctorLoginPage.xaml;EditAppointment.xaml;Feedbacks.xaml;Login.xaml;MainWindow.xaml;ManagerAppointmentPage.xaml;ManagerDash.xaml;ManagerProfile.xaml;ManagerReports.xaml;PatientDashboard.xaml;PatientLoginPage.xaml;PatientProfile.xaml;Register.xaml;Reports.xaml;
+Aboutus.xaml;Admin.xaml;AppointmentPage.xaml;Appointments.xaml;Book Appointment.xaml;bookAppointment.xaml;ChangePassword.xaml;Consultationn.xaml;Contactus.xaml;CustomerRepAppointmentPage.xaml;CustomerRepDash.xaml;CustomerRepProfile.xaml;DentistDashboard.xaml;DoctorConsultation.xaml;DoctorLoginPage.xaml;DoctorProfile.xaml;EditAppointment.xaml;FAQ.xaml;Feedbacks.xaml;Insurance.xaml;Login.xaml;MainWindow.xaml;ManagerAppointmentPage.xaml;ManagerDash.xaml;ManagerFeedbacks.xaml;ManagerProfile.xaml;PatientDashboard.xaml;PatientDetail.xaml;PatientLoginPage.xaml;PatientProfile.xaml;Payment.xaml;Register.xaml;Reports.xaml;ReportsDoctor.xaml;ReportsManager.xaml;Schedule.xaml;UpdateEmail.xaml;
 
 False
 

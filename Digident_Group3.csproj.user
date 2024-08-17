@@ -22,6 +22,15 @@
     <Compile Update="Book Appointment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="bookAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChangePassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Consultationn.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Contactus.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,13 +46,25 @@
     <Compile Update="DentistDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DoctorConsultation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DoctorLoginPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DoctorProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditAppointment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="FAQ.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Feedbacks.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Insurance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Login.xaml.cs">
@@ -55,13 +76,16 @@
     <Compile Update="ManagerDash.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ManagerFeedbacks.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ManagerProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ManagerReports.xaml.cs">
+    <Compile Update="PatientDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PatientDashboard.xaml.cs">
+    <Compile Update="PatientDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PatientLoginPage.xaml.cs">
@@ -70,10 +94,25 @@
     <Compile Update="PatientProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Payment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Reports.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ReportsDoctor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ReportsManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Schedule.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UpdateEmail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -93,6 +132,15 @@
     <Page Update="Book Appointment.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="bookAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Consultationn.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Contactus.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -108,13 +156,25 @@
     <Page Update="DentistDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="DoctorConsultation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DoctorLoginPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DoctorProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="FAQ.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Feedbacks.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Insurance.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -129,13 +189,16 @@
     <Page Update="ManagerDash.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ManagerFeedbacks.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ManagerProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ManagerReports.xaml">
+    <Page Update="PatientDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PatientDashboard.xaml">
+    <Page Update="PatientDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PatientLoginPage.xaml">
@@ -144,10 +207,25 @@
     <Page Update="PatientProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Payment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Register.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Reports.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReportsDoctor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReportsManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Schedule.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UpdateEmail.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

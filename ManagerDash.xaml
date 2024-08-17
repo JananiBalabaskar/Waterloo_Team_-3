@@ -39,7 +39,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Reports" Margin="5" Click="Appointments">
+                <Button Content="Reports" Margin="5" Click="Reports">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -47,7 +47,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Feedbacks" Margin="5" Click="Reports">
+                <Button Content="Feedbacks" Margin="5" Click="Feedbacks">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -64,7 +64,6 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <DataGrid x:Name="AppointmentsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True"/>
         </Grid>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10"/>
         <Button Content="Logout" Click="Button_Click_2" Margin="670,16,30,16">

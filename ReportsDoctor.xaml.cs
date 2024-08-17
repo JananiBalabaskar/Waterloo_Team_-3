@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for ReportsDoctor.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class ReportsDoctor : Page
     {
-        public CustomerRepProfile(int userID)
+        public ReportsDoctor()
         {
             InitializeComponent();
         }
@@ -30,18 +30,8 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.ChangePage(new CustomerRepDash());
+                mainWindow.ChangePage(new DentistDashboard());
             }
-        }
-
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
