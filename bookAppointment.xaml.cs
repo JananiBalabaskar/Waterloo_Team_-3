@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for bookAppointment.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class bookAppointment : Page
     {
-        public CustomerRepProfile(int userID)
+        public bookAppointment()
         {
             InitializeComponent();
+        }
+
+        private void BookAppointment_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -32,16 +37,6 @@ namespace Digident_Group3
             {
                 mainWindow.ChangePage(new CustomerRepDash());
             }
-        }
-
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

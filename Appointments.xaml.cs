@@ -24,5 +24,14 @@ namespace Digident_Group3
         {
             InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DentistDashboard());
+            }
+        }
     }
 }

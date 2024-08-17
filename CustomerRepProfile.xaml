@@ -9,6 +9,44 @@
       Title="CustomerRepProfile">
 
     <Grid>
-        
+        <Grid.Background>
+            <ImageBrush ImageSource="/dentistry.jpg"/>
+        </Grid.Background>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Text="Customer Profile" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#1A73E8"/>
+
+            <!-- Name Field -->
+            <TextBlock Text="Name:" Grid.Row="0" Margin="0,0,0,5"/>
+            <TextBox x:Name="NameTextBox" Grid.Row="1" Margin="0,0,0,10"/>
+
+            <!-- Email Field -->
+            <TextBlock Text="Email:" Grid.Row="2" Margin="0,0,0,5"/>
+            <TextBox x:Name="EmailTextBox" Grid.Row="3" Margin="0,0,0,10"/>
+
+            <!-- Phone Number Field -->
+            <TextBlock Text="Phone Number:" Grid.Row="4" Margin="0,0,0,5"/>
+            <TextBox x:Name="PhoneNumberTextBox" Grid.Row="5" Margin="0,0,0,10"/>
+
+            <!-- Address Field -->
+            <TextBlock Text="Address:" Grid.Row="6" Margin="0,0,0,5"/>
+            <TextBox x:Name="AddressTextBox" Grid.Row="7" Margin="0,0,0,20"/>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,66,0,-66">
+                <Button Content="Edit" Width="80" Margin="5" Click="EditProfile_Click"/>
+                <Button Content="Save" Width="80" Margin="5" Click="SaveProfile_Click"/>
+            </StackPanel>
+        </Grid>
+        <Button Content="Back" Style="{StaticResource ButtonStyle}" Click="BackButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="622,5,0,0" Height="23" Width="143"/>
     </Grid>
 </Page>

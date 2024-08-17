@@ -71,7 +71,7 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 // Navigate to AppointmentPage for managers
-                var appointmentPage = new ManagerAppointmentPage(UserSession.UserID);
+                var appointmentPage = new ManagerAppointmentPage();
                 mainWindow.ChangePage(appointmentPage);
             }
         }
@@ -82,7 +82,7 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 // Navigate to Reports page
-                mainWindow.ChangePage(new Reports(UserSession.UserID));
+                mainWindow.ChangePage(new ReportsManager());
             }
         }
 
@@ -107,6 +107,16 @@ namespace Digident_Group3
             if (mainWindow != null)
             {
                 mainWindow.ChangePage(new DoctorLoginPage());
+            }
+        }
+
+        private void Feedbacks(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                // Navigate to ManagerProfile page
+                mainWindow.ChangePage(new ManagerFeedbacks());
             }
         }
     }

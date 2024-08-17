@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
-                <Button Content="Book Appointments" Margin="5" Click="Appointments">
+                <Button Content="Book Appointments" Margin="5" Click="bookAppointments">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -47,7 +47,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Schedule" Margin="5" Click="Reports">
+                <Button Content="Schedule" Margin="5" Click="schedule">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -55,7 +55,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Payment" Margin="5" Click="ManagerProfile">
+                <Button Content="Payment" Margin="5" Click="Payment">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -63,7 +63,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Insurance" Margin="5" Click="ManagerProfile">
+                <Button Content="Insurance" Margin="5" Click="Insurance">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FF8ADAED"/>
@@ -80,7 +80,6 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <DataGrid x:Name="AppointmentsDataGrid" Grid.Column="1" Margin="10" AutoGenerateColumns="True"/>
         </Grid>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10" RenderTransformOrigin="0.313,0.201"/>
         <Button Content="Logout" Click="Button_Click_2" Margin="670,11,30,21">

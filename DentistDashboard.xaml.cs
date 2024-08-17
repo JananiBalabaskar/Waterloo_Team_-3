@@ -65,41 +65,65 @@ namespace Digident_Group3
             }
         }
 
-        private void BookAppointments(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Book Appointments page
-        }
-
+        
         private void Appointments(object sender, RoutedEventArgs e)
         {
-            // Navigate to Appointments page
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new Appointments());
+            }
         }
 
         private void Reports(object sender, RoutedEventArgs e)
         {
-            // Navigate to Reports page
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new ReportsDoctor());
+            }
         }
 
-        private void PatientProfile(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Patient Profile page
-        }
-
-        private void Feedbacks(object sender, RoutedEventArgs e)
-        {
-            // Navigate to Feedbacks page
-        }
-
+       
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            // Clear the user session
             UserSession.UserID = 0;
             UserSession.UserEmail = string.Empty;
             UserSession.CurrentUsername = string.Empty;
 
+            // Navigate to the login page
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
                 mainWindow.ChangePage(new DoctorLoginPage());
+            }
+        }
+
+        private void PatientDetail(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new PatientDetail());
+            }
+        }
+
+        private void Doctorconsultation(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new Consultationn());
+            }
+        }
+
+        private void Profile(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.ChangePage(new DoctorProfile());
             }
         }
     }

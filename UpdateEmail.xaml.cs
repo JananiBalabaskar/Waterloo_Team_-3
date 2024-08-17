@@ -16,37 +16,27 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for ManagerProfile.xaml
+    /// Interaction logic for UpdateEmail.xaml
     /// </summary>
-    public partial class ManagerProfile : Page
+    public partial class UpdateEmail : Page
     {
-        public ManagerProfile(int userID)
+        public UpdateEmail()
         {
             InitializeComponent();
         }
 
+       
+
         private void UpdateEmail_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.ChangePage(new UpdateEmail());
-            }
+
         }
 
-        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.ChangePage(new ChangePassword());
-            }
+
         }
-
-       
-        
-
-        private void Homebutton(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)

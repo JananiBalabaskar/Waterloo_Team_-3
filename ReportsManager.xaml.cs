@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for ReportsManager.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class ReportsManager : Page
     {
-        public CustomerRepProfile(int userID)
+        public ReportsManager()
         {
             InitializeComponent();
         }
@@ -30,16 +30,16 @@ namespace Digident_Group3
             MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
             if (mainWindow != null)
             {
-                mainWindow.ChangePage(new CustomerRepDash());
+                mainWindow.ChangePage(new ManagerDash());
             }
         }
 
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        private void GenerateReport_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
+        private void cmbReportType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

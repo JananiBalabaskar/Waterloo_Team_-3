@@ -16,30 +16,32 @@ using System.Windows.Shapes;
 namespace Digident_Group3
 {
     /// <summary>
-    /// Interaction logic for CustomerRepProfile.xaml
+    /// Interaction logic for Consultationn.xaml
     /// </summary>
-    public partial class CustomerRepProfile : Page
+    public partial class Consultationn : Page
     {
-        public CustomerRepProfile(int userID)
+        public Consultationn()
         {
             InitializeComponent();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.ChangePage(new CustomerRepDash());
-            }
+            
+                MainWindow? mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    mainWindow.ChangePage(new DentistDashboard());
+                }
+            
         }
 
-        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        private void UploadProcedure(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void SaveProfile_Click(object sender, RoutedEventArgs e)
+        private void GoToConsultation(object sender, RoutedEventArgs e)
         {
 
         }

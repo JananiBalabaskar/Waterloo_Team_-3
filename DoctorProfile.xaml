@@ -1,0 +1,99 @@
+﻿<Page x:Class="Digident_Group3.DoctorProfile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Digident_Group3"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DoctorProfile">
+    <Page.Resources>
+        <!-- Define a Button Style -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF8ADAED"/>
+                        <GradientStop Color="#FF1A73BD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="#005B9A"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/dental (6).png"/>
+        </Grid.Background>
+        <!-- Define rows for the Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" MinHeight="171.28"/>
+        </Grid.RowDefinitions>
+
+        <!-- GroupBox for Doctor Details -->
+        <GroupBox Header="Doctor Details" Grid.Row="0" Margin="10">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="First Name:" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                <TextBox x:Name="txtFirstName" Grid.Column="1" Margin="5" Grid.Row="0" IsReadOnly="True" Text="{Binding FirstName}"/>
+
+                <Label Content="Last Name:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="1"/>
+                <TextBox x:Name="txtLastName" Grid.Column="1" Margin="5" Grid.Row="1" IsReadOnly="True" Text="{Binding LastName}"/>
+
+                <Label Content="Phone Number:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="2"/>
+                <TextBox x:Name="txtPhoneNumber" Grid.Column="1" Margin="5" Grid.Row="2" IsReadOnly="True" Text="{Binding PhoneNumber}"/>
+
+                <Label Content="Address:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="3"/>
+                <TextBox x:Name="txtAddress" Grid.Column="1" Margin="5" Grid.Row="3" IsReadOnly="True" Text="{Binding Address}"/>
+
+                <Label Content="Email:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="4"/>
+                <TextBox x:Name="txtEmail" Grid.Column="1" Margin="5" Grid.Row="4" IsReadOnly="True" Text="{Binding Email}"/>
+
+                <Label Content="License Number:" Grid.Column="0" VerticalAlignment="Center" Margin="5" Grid.Row="5"/>
+                <TextBox x:Name="txtLicenseNumber" Grid.Column="1" Margin="5" Grid.Row="5" IsReadOnly="True" Text="{Binding LicenseNumber}"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Back" Style="{StaticResource ButtonStyle}" Click="BackButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="622,5,0,0" Height="23" Width="143"/>
+        <!-- GroupBox for Appointment History -->
+        <GroupBox Header="Appointment History" Grid.Row="2" Margin="7">
+            <DataGrid x:Name="AppointmentsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Margin="10,0,10,0" Height="113">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date" Binding="{Binding AppointmentDate}" Width="*"/>
+                    <DataGridTextColumn Header="Time" Binding="{Binding AppointmentTime}" Width="*"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding AppointmentType}" Width="*"/>
+                    <DataGridTextColumn Header="Patient" Binding="{Binding PatientName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Page>
